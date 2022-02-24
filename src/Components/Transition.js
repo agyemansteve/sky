@@ -16,8 +16,6 @@ import img1 from "../images/img2.jpg";
 // import { Link } from "react-router-dom";
 
 // import Youtube from "./Youtube";
-import Opener from "./Opener";
-import Block from "./Block";
 
 export default function Transition(props) {
   const [offsetY, setOffsetY] = useState(0);
@@ -199,6 +197,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
       {/* LEFT SIDE BAR */}
 
       <Row
+        className="topCol"
         style={{
           height: mobile ? "20vh" : "165vh",
           transition: "all 1s ease",

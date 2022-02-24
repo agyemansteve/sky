@@ -5,20 +5,14 @@ import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import Move from "./Move";
 import clouds from "../images/rawpixel.png";
-import img1 from "../images/img1.jpg";
-
-import img2 from "../images/img2.jpg";
-import img3 from "../images/img3.jpg";
 
 // import Spinner from "react-bootstrap/Spinner";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import Row from "react-bootstrap/Row";
 
-import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
+
 import * as THREE from "three";
 
-import { Billboard, Text, Effects, Preload, Html } from "@react-three/drei";
+import { Effects, Preload } from "@react-three/drei";
 
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
@@ -27,13 +21,8 @@ import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 // import Box from "./box";
 
 import { Sphere, BigSphere } from "./Sphere";
-import Cursor from "./Cursor";
-import ThreeImg from "./ThreeImg";
-import IAM from "./IAM";
 import About from "./About";
 
-import { config, useSpring, a } from "@react-spring/web";
-import ContactForm from "./ContactForm";
 // import { height } from "dom-helpers";
 // import Cityview from "./cityView";
 // import Opener from "./Opener";
@@ -67,7 +56,7 @@ const Camera2 = () => {
   // camera.position.set(9, 11, 9);
   // controls.update();
   // console.log(camera.position);
-  const Foo = ({ vec = new THREE.Vector3(), ...props }) => {
+  const Foo = ({ vec = new THREE.Vector3() }) => {
     useFrame(() => {
       let x = (mouse.x * viewport.width) / 4;
       let y = (mouse.y * viewport.width) / 4;
@@ -102,75 +91,56 @@ const Home = (props) => {
   const handleScroll = () => setOffsetY(window.pageYOffset);
   // const textsize = offsetY / 12;
 
-  // console.log(offsetY);
+  console.log(offsetY);
   // const [show, setShow] = useState();
 
-  const BillboardGroup = () => {
-    const follow = ("follow", false);
-    const lockX = ("lockX", true);
-    const lockY = ("lockY", true);
-    const lockZ = ("lockZ", true);
-    // console.log(props.greetings);
+  const introText = (
+    <div
+      className="canvasText  "
+      style={{
+        // display: "block",
+        // width: "100%",
+        color: "black",
+        position: "absolute",
+        left: "50%",
+        top: mobile ? "50%" : "45%",
+        textAlign: "center",
+        pointerEvents: "none",
+        transform: `translate(-50%, -50%)`,
+        zIndex: "1",
+      }}
+    >
+      <h1
+        style={{ fontSize: mobile ? "9rem" : "20rem", pointerEvents: "none" }}
+      >
+        He
+        <strong
+          style={{
+            color: "#770006",
+            transition: " all .25s ease",
 
-    return (
-      <>
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[0, 0, 0]}
+            fontSize: mobile ? "15rem" : "30rem",
+
+            fontWeight: "100",
+          }}
         >
-          <Html>
-            <div
-              className="canvasText"
-              style={{
-                // display: "block",
-                width: "100%",
-                textAlign: "center",
-                pointerEvents: "none",
-                transform: `translate(-50%, -50%)`,
-              }}
-            >
-              <h1 style={{ fontSize: "8rem", pointerEvents: "none" }}>
-                He
-                <strong
-                  style={{
-                    color: "darkred",
-                    transition: " all .25s ease",
-
-                    fontSize: "10rem",
-
-                    fontWeight: "100",
-                  }}
-                >
-                  ll
-                </strong>
-                o{" "}
-              </h1>
-              <p
-                style={{
-                  fontSize: ".6rem",
-                  color: "#000",
-                  pointerEvents: "none",
-                  letterSpacing: "4px",
-                }}
-              >
-                {" "}
-                Welcome to my portfolio site
-              </p>
-            </div>
-
-            {/* <ThreeImg img1={img1} img2={img2} img3={img3} /> */}
-          </Html>
-          {/* <Text color={"white"} fontSize={600}>
-            {props.greetings}
-          </Text> */}
-        </Billboard>
-      </>
-    );
-  };
-
+          ll
+        </strong>
+        o{" "}
+      </h1>
+      {/* <p
+        style={{
+          fontSize: ".6rem",
+          color: "#000",
+          pointerEvents: "none",
+          letterSpacing: "4px",
+        }}
+      >
+        {" "}
+        Welcome to my portfolio site
+      </p> */}
+    </div>
+  );
   // const [{ background }] = useSpring(
   //   () => ({
   //     from: {
@@ -185,6 +155,7 @@ const Home = (props) => {
   //     },
   //   }),
   //   []
+
   // );
 
   useEffect(() => {
@@ -213,8 +184,14 @@ const Home = (props) => {
         }}
         className="top"
       >
-        {/* <Cursor offsetY={offsetY} /> */}
+        {introText}
         <Canvas
+          mode="concurrent"
+          onCreated={(s) => {
+            if (s.internal.interaction.length !== 0) {
+              console.log("test");
+            }
+          }}
           // frameloop="demand"
           className="canvas1 canvasText"
           camera={{
@@ -238,7 +215,7 @@ const Home = (props) => {
                 <glitchPass attachArray="passes" />
               </Effects>
 
-              <BillboardGroup />
+              {/* <BillboardGroup /> */}
               <pointLight
                 position={[11170, 1000, 5000]}
                 color="red"

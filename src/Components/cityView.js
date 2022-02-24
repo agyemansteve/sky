@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 // import img1 from "../images/img1.jpg";
 
+import img2 from "../images/img2.jpg";
 // import img2 from "../images/img2.jpg";
 // import img3 from "../images/img3.jpg";
 // import { Physics } from "@react-three/cannon";
@@ -152,7 +153,7 @@ const BillboardGroup = () => {
                 /* top: 3%; */
                 transform: " translate(-50%,-50%)",
               }}
-              className="contact canvasText"
+              className="contact  canvasText"
             >
               {" "}
               <ContactForm />
@@ -199,12 +200,16 @@ const Cityview = (props) => {
 
   return (
     <div
-      style={{ overflowX: "hidden", background: "white" }}
+      style={{
+        overflowX: "hidden",
+        background: mobile
+          ? `url(${img2}) center center/cover`
+          : `url(${img2}) center center/cover fixed`,
+        filter: " invert(1)",
+      }}
       className="cityView "
     >
-      <div
-      //    className="top"
-      >
+      <div>
         <Canvas
           className="canvasText"
           style={{ height: "100vh" }}
@@ -223,9 +228,9 @@ const Cityview = (props) => {
             <directionalLight castShadow position={[0, 0, 0]} intensity={1.5} />
 
             <group>
-              <Effects>
+              {/* <Effects>
                 <glitchPass attachArray="passes" />
-              </Effects>
+              </Effects> */}
 
               <pointLight
                 position={[11170, 1000, 5000]}

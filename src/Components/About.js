@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import Row from "react-bootstrap/Row";
-import ThreeImg from "./ThreeImg";
 
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
@@ -10,13 +9,7 @@ import Button from "react-bootstrap/Button";
 import img1 from "../images/img1.jpg";
 
 import img2 from "../images/img2.jpg";
-import img3 from "../images/img3.jpg";
-import img4 from "../images/img4.jpg";
 
-import img5 from "../images/img5.jpg";
-import img6 from "../images/img6.jpg";
-import img7 from "../images/img7.jpg";
-import ContactForm from "./ContactForm";
 import Container from "react-bootstrap/Container";
 
 export default function IAM() {
@@ -39,20 +32,17 @@ export default function IAM() {
   useEffect(() => {
     //Movement Animation to happen
     // const iamText = document.querySelector(".iamText");
-    const mainVideo = document.querySelector(".mainVideo");
     const aboutCards = document.querySelectorAll(".aboutCard");
     const IamText = document.querySelector(".iamText");
 
-    IamText.addEventListener("mouseenter", (e) => {
+    IamText.addEventListener("mouseenter", () => {
       IamText.style.transition = `all 0.5s ease`;
       IamText.style.filter = " none";
       // IamText.style.transform = `scale(1.1)`;
     });
 
-    IamText.addEventListener("mouseleave", (e) => {
-      IamText.style.filter = "invert(1) ";
-
-      // mainVideo.style.transform = `scale(1)`;
+    IamText.addEventListener("mouseleave", () => {
+      // IamText.style.filter = "invert(1) ";
     });
 
     // mainVideo.addEventListener("mouseenter", (e) => {
@@ -73,29 +63,30 @@ export default function IAM() {
       card.addEventListener("mouseenter", (e) => {
         const ele = e.target.children[0];
 
-        card.style.transition = "all 0.5s cubic-bezier(0.86, 0, 0.07, 1)";
+        card.style.transition = "all 1s ease";
         ele.children[0].style.height = "10%";
         ele.children[0].style.background = "#ffffff00";
-        ele.children[0].style.borderRadius = "0 0 10% 10%";
+        // ele.children[0].style.borderRadius = "0 0 10% 10%";
 
-        ele.children[0].style.transition =
-          "all .8s cubic-bezier(0.86, 0, 0.07, 1)";
+        // ele.children[0].style.transition =
+        //   "all .8s cubic-bezier(0.86, 0, 0.07, 1)";
         // console.log(e.target.children[0]);
-        e.target.style.filter = "none";
-        card.style.transform = "scale(.7)";
-        // card.style.clipPath = ` polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%)`;
+        // e.target.style.filter = " none";
+        card.style.transform = "scale(1)";
+        // card.style.clipPath = ` polygon(0% 0%, 100% 0%, 50% 100%)`;
+        // clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)",
       });
 
       card.addEventListener("mouseleave", (e) => {
         const ele = e.target.children[0];
         // card.style.transition = "all 0.5s ease";
-        ele.children[0].style.background = "#ffffff";
+        // ele.children[0].style.background = "#ffffff";
+        e.target.style.filter = "invert(1)";
 
-        e.target.style.filter = " grayscale(1)";
-        ele.children[0].style.height = "68%";
-        card.style.transform = `scale(1)`;
+        // ele.children[0].style.height = "68%";
+        card.style.transform = `scale(.8)`;
         ele.children[0].style.borderRadius = "0 ";
-        card.style.clipPath = `none`;
+        // card.style.clipPath = `none`;
       });
     });
 
@@ -131,34 +122,36 @@ export default function IAM() {
 
   return (
     <>
-      <Container>
+      <Container fluid>
         <Row
-          className="iam"
+          className="iam "
           style={{
-            height: "88vh",
+            height: mobile ? "57vh" : "88vh",
           }}
         >
           <Col
-            style={{
-              padding: !mobile && "9rem 0px 0px 0px",
-            }}
+          // style={{
+          //   padding: !mobile && "9rem 0px 0px 0px",
+          // }}
           >
             {" "}
             <div
               className="iamText observed"
               style={{
                 position: "relative",
-                background: "rgb(15 9 1)",
+                // background: "rgb(15 9 1)",
                 color: "white",
-                transition:
-                  "width 0.5s cubic-bezier(0.86, 0, 0.07, 1) 700ms,   opacity 1s ease ",
+                transition: "width 0.5s ease,   opacity 1s ease ",
                 opacity: offsetY >= 250 ? "1" : "0",
                 left: !mobile && "0%",
                 top: !mobile && " 1%",
                 borderRadius: "5px",
                 textAlign: "center",
+                backdropFilter: "brightness(0.85)",
+                height: mobile ? "96%" : "91%",
                 width: mobile ? "100%" : offsetY >= 250 && "100%",
-                padding: "5rem 13rem",
+                // padding: "13rem 26rem",
+                clipPath: !mobile && "polygon(50% 0%, 100% 100%, 0% 100%)",
 
                 //   marginTop: "35%",
                 //   zIndex: "1",
@@ -176,17 +169,31 @@ export default function IAM() {
               <h1
                 style={{
                   borderBottom: "1px solid white",
+                  // padding: "11%",
+                  paddingTop: "15%",
+                  paddingBottom: "7%",
+                  fontSize: "3rem",
+                  color: "black",
+                  fontWeight: "800",
+                  textShadow: "14px 20px #e3e2e2",
                 }}
               >
                 {" "}
-                About me{"  "}
+                ABOUT{"  "}
               </h1>
 
               {/* <h3> STEVE AGYEMAN </h3> */}
-              <p>
+              <p
+                style={{
+                  padding: mobile ? "2rem 5rem" : "0rem 30%",
+                  transition: "all 1s ease",
+                  background: offsetY >= 450 && " #770006",
+                }}
+              >
                 I'm Steve Agyeman, a Manchester United fan and a{" "}
                 <strong
                   style={{
+                    transition: "all 1s ease",
                     fontSize: mobile ? ".9rem" : "1.2rem",
                     fontStyle: "italic",
                   }}
@@ -303,6 +310,7 @@ export default function IAM() {
               <Link
                 to="/work"
                 style={{
+                  display: mobile && "none",
                   textDecoration: "none",
                 }}
               >
@@ -322,120 +330,57 @@ export default function IAM() {
         </Row>
       </Container>
 
-      <Container fluid>
+      <Container
+        style={{
+          background: mobile && `#0d0d0f`,
+          // filter: "invert(1)",
+          transform: mobile
+            ? offsetY >= 590
+              ? "translateY(1px)"
+              : "translateY(300px)"
+            : "none",
+          transition: "all .5s ease",
+          width: offsetY > 1000 ? "100vw" : "90vw",
+        }}
+        fluid
+      >
         <Row
-          className="justify-content-md-center"
-          md={3}
+          className="justify-content-md-center  "
+          // md={3}
           style={{
+            // width: offsetY > 1000 ? "100vw" : "90vw",
             height: mobile ? "35vh " : "100vh",
             overflow: "hidden",
             position: "relative",
-            backgroundColor: "white",
+            margin: "auto",
+            transition: "width 1s cubic-bezier(0.86, 0, 0.07, 1)",
+            // backgroundColor: mobile && "white",
             padding: "10%",
           }}
         >
           <Col
+            className="aboutCardWrapper "
             style={{
               textAlign: "center",
-              // background: `url(${img4}) center center/cover`,
-            }}
-          >
-            <div
-              className="aboutCard"
-              style={{
-                background: `url(${img1}) center center/cover`,
-                height: mobile ? "80%" : "100%",
-                width: "100%",
-                filter: !mobile && " grayscale(1)",
-                border: "1px solid",
-
-                // boxShadow: "inset 6px 8px 2px black",
-              }}
-            >
-              <Link
-                to="/projects"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <h1
-                  style={{
-                    paddingTop: "50%",
-                    height: "68%",
-                    background: "white",
-                    // background: "rgba(240, 248, 255, 0.41)",
-                    fontWeight: "900",
-                    // backdropFilter: "grayscale(1)",
-                  }}
-                >
-                  PROJECTS
-                </h1>
-              </Link>
-            </div>
-          </Col>
-          {/* <Col
-         
-            style={{
-             
-
-              textAlign: "center",
-            }}
-          >
-            <div
-              className="aboutCard"
-              style={{
-                background: `url(${img3}) center center/cover`,
-                height: "100%",
-                width: "100%",
-                filter: " grayscale(1)",
-
-             
-              }}
-            >
-              {" "}
-              <Link
-                to="/contact"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <h1
-                  style={{
-                    paddingTop: "50%",
-
-                    height: "68%",
-                    background: "white",
-                   
-                    fontWeight: "900",
-                    
-                  }}
-                >
-                  CONTACT
-                </h1>
-              </Link>
-            </div>{" "}
-          </Col>
-        
-        
-         */}
-
-          <Col
-            // className="aboutCard"
-            style={{
-              textAlign: "center",
+              // clipPath: "polygon(0% 0%, 100% 0%, 50% 100%)",
               // background: `url(${img6}) center center/cover`,
             }}
           >
             <div
-              className="aboutCard"
+              className="aboutCard observed"
               style={{
-                background: `url(${img3}) center center/cover`,
+                background: mobile
+                  ? "white"
+                  : `url(${img2}) center center/cover fixed`,
                 height: mobile ? "80%" : "100%",
                 width: "100%",
-                filter: !mobile && " grayscale(1)",
-                border: "1px solid",
+                color: "white",
+                filter: !mobile && " invert(1)",
+                // backdropFilter: "brightness(0.5)",
+                transform: `scale(.8)`,
+                // border: "1px solid",
+                // clipPath: ` polygon(0% 0%, 100% 0%, 50% 100%)`,
+                clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)",
 
                 // boxShadow: "black -4px 8px 2px inset",
               }}
@@ -449,13 +394,16 @@ export default function IAM() {
               >
                 <h1
                   style={{
-                    paddingTop: "50%",
+                    paddingTop: "29%",
+                    color: "black",
 
-                    height: "68%",
-                    background: "white",
+                    fontSize: "3rem",
+                    height: "30%",
+                    // background: "black",
                     // background: "rgba(240, 248, 255, 0.41)",
-                    fontWeight: "900",
-                    // backdropFilter: " grayscale(1)",
+
+                    fontWeight: "800",
+                    textShadow: "14px 20px #e3e2e2",
                   }}
                 >
                   APPS
@@ -464,6 +412,36 @@ export default function IAM() {
             </div>
           </Col>
         </Row>
+      </Container>
+      <Container
+        style={{
+          display: mobile && "none",
+          background: mobile
+            ? `url(${img2}) center center/cover`
+            : `url(${img2}) center center/cover fixed`,
+          filter: "invert(1)",
+          height: "40vh",
+          // transform: mobile
+          //   ? "none"
+          //   : offsetY >= 1600
+          //   ? "translateY(0px)"
+          //   : "translateY(300px)",
+          // width: offsetY > 1800 ? "101vw" : "1vw",
+          transition: "transform .5s ease ",
+          margin: "auto",
+        }}
+        fluid
+      >
+        <Row
+        // style={{
+        //   background: `url(${img2}) center center/cover fixed`,
+        //   filter: "invert(1)",
+        //   height: "100vh",
+        //   width: offsetY > 1800 ? "101vw" : "1vw",
+        //   transition: "width 1s cubic-bezier(0.86, 0, 0.07, 1)",
+        //   margin: "auto",
+        // }}
+        ></Row>
       </Container>
     </>
   );

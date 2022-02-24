@@ -12,14 +12,10 @@ import Home from "./Components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 // import Cityview from "./Components/cityView";
-import Cursor from "./Components/Cursor";
-import IAM from "./Components/IAM";
 // import ContactForm from "./Components/ContactForm";
 // import ProjectSec from "./Components/ProjectSec";
 
 const Transition = React.lazy(() => import("./Components/Transition"));
-const ProjectSec = React.lazy(() => import("./Components/ProjectSec"));
-const ContactForm = React.lazy(() => import("./Components/ContactForm"));
 const CityView = React.lazy(() => import("./Components/cityView"));
 const Footer = React.lazy(() => import("./Components/Footer"));
 
@@ -257,8 +253,6 @@ class App extends React.Component {
       } else if (txt.style.display === "none") {
         txt.style.display = "";
       }
-
-      console.log(txt.style.display);
     });
 
     this.setState({ navToggle: false });
@@ -273,18 +267,22 @@ class App extends React.Component {
     const option = {
       root: null,
       threshold: 0,
-      // rootMargin: "-150px",
+      rootMargin: "150px",
     };
 
     const elementObserver = new IntersectionObserver(function (entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // console.log(entry.target.style);
-          entry.target.style.Transition = ".4s";
+          entry.target.style.Transition =
+            " opacity 1s ease transform 2s cubic-bezier(0.86, 0, 0.07, 1) 1s";
           entry.target.style.opacity = 1;
+          entry.target.style.transform = "scale(1)";
           // entry.target.style.display = "none";
         } else {
+          entry.target.style.transform = "scale(.5)";
           entry.target.style.opacity = 0;
+
           // entry.target.style.display = "";
         }
       });
@@ -304,20 +302,20 @@ class App extends React.Component {
   handleGreeting() {
     const greetingsArray = [
       "Akwaaba",
-      // "你好",
+      "你好",
       "Bem-Vinda",
       "Bienvenidos",
       "Hallo",
-      // "مرحبا!",
+      "مرحبا!",
       "Hello",
 
-      // "こんにちは",
+      "こんにちは",
       "Guten Tag",
 
       "Bonjour",
-      // "γεια",
+      "γεια",
       "Siyakwamukela",
-      // "स्वागत हे",
+      "स्वागत हे",
       "Kaabo",
       "Nnabata",
     ];
@@ -389,7 +387,7 @@ class App extends React.Component {
       .then(function (response) {
         const rndNum = Math.floor(Math.random() * 10);
         let vidArr = response.data.items;
-        // console.log(vidArr);
+        console.log(response.data);
 
         const youtubeText = document.querySelector(".youtubeText");
 
@@ -425,10 +423,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div
+        className="app"
+        style={{
+          display: "none",
+        }}
+      >
         <ScrollToTop />
         {/* <Cursor /> */}
-        <div className="cursor"></div>
+        <div className="cursor">
+          <small
+            style={{
+              color: "black",
+              fontSize: "1rem",
+              position: "relative",
+              top: "39px",
+            }}
+            className="cursorInner"
+          ></small>
+        </div>
         <Navbar
           navToggle={this.state.navToggle}
           greetings={this.state.greetings}
@@ -465,12 +478,7 @@ class App extends React.Component {
             </React.Suspense>
             {/* <ProjectSec /> */}
           </Route>
-          <Route path="/projects">
-            <React.Suspense fallback={<>LOADING...</>}>
-              <ProjectSec />
-              <Footer> </Footer>
-            </React.Suspense>
-          </Route>
+
           <Route path="/contact">
             <React.Suspense fallback={<>LOADING...</>}>
               <CityView />
@@ -489,7 +497,14 @@ class App extends React.Component {
 
             <React.Suspense fallback={<>LOADING...</>}>
               <CityView />
-              <Footer> </Footer>
+              <div
+                style={{
+                  background: "#101012",
+                  color: "white",
+                }}
+              >
+                <Footer> </Footer>
+              </div>
             </React.Suspense>
           </Route>
         </Switch>

@@ -2,13 +2,16 @@ import React, { Suspense, useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import ProjectCard from "./ProjectCards";
+
 import { useTransition, a, config } from "@react-spring/web";
 import shuffle from "lodash.shuffle";
+import projectPng from "../images/projects.png";
 import img1 from "../images/img1.jpg";
 
-import img2 from "../images/bbxo.png";
-import img3 from "../images/palms.png";
+import bbxo from "../images/bbxo.png";
+import palms from "../images/palms.png";
+import bbxobg from "../images/bbxobackground.png";
+import palmsbg from "../images/palmsbackground.png";
 import img4 from "../images/img4.jpg";
 
 import img5 from "../images/img5.jpg";
@@ -23,53 +26,53 @@ softShadows();
 
 const data = [
   {
-    img1: img7,
-    img2: img1,
-    img3: img2,
-    title: "titile 2",
-    dis: "dwoeinfowinef",
-    height: 300,
+    img1: projectPng,
+    img2: projectPng,
+    img3: projectPng,
+    title: "",
+    dis: "",
+    projectImg: projectPng,
   },
   {
-    img1: img1,
-    img2: img2,
-    img3: img3,
-    title: "titile 1",
-    dis: "dwoeinfowinef",
-    height: 300,
-  },
-  {
-    img1: img4,
-    img2: img5,
-    img3: img6,
-    title: "titile  3",
-    dis: "dwoeinfowinef",
-    height: 300,
-  },
-  {
-    img1: img7,
-    img2: img1,
-    img3: img2,
-    title: "titile 788",
-    dis: "dwoeinfowinef",
-    height: 300,
-  },
-  {
-    img1: img3,
+    img1: bbxobg,
     img2: img4,
     img3: img5,
-    title: "titile 67697",
+    title: "bbx.netlify.app",
     dis: "dwoeinfowinef",
-    height: 300,
+    projectImg: bbxo,
   },
   {
-    img1: img6,
-    img2: img7,
-    img3: img1,
-    title: "titile p98",
+    img1: palmsbg,
+    img2: img5,
+    img3: img6,
+    title: "palms.netlify.app",
     dis: "dwoeinfowinef",
-    height: 300,
+    projectImg: palms,
   },
+  {
+    img1: img7,
+    img2: img1,
+    img3: img4,
+    title: "titile 788",
+    dis: "dwoeinfowinef",
+    projectImg: 300,
+  },
+  // {
+  //   img1: img3,
+  //   img2: img4,
+  //   img3: img5,
+  //   title: "titile 67697",
+  //   dis: "dwoeinfowinef",
+  //   projectImg: 300,
+  // },
+  // {
+  //   img1: img6,
+  //   img2: img7,
+  //   img3: img1,
+  //   title: "titile p98",
+  //   dis: "dwoeinfowinef",
+  //   projectImg: 300,
+  // },
   //   {
   //     css: "url(https://images.pexels.com/photos/1005644/pexels-photo-1005644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)",
   //     height: 200,
@@ -226,7 +229,7 @@ export default function Projects() {
     controls.zoomSpeed = 0.1;
     controls.enableZoom = false;
     controls.panSpeed = 0.0001;
-    // controls.maxDistance = 50;
+    controls.maxDistance = (data.length - 1) * 10;
 
     const CameraController = ({ vec = new THREE.Vector3(), ...props }) => {
       useFrame(({ clock }) => {
@@ -237,8 +240,8 @@ export default function Projects() {
         // camera.position.lerp(new THREE.Vector3(x, y, 1), 0.1);
 
         // camera.position.lerp(vec.set(-x, 0, 1), 1);
-        if (camera.position.x > 48) {
-          camera.position.x -= 48;
+        if (camera.position.x > (data.length - 1) * 10 - 1) {
+          camera.position.x -= (data.length - 1) * 10 - 1;
         }
         if (camera.position.x < -5) {
           camera.position.x = -5;
@@ -271,6 +274,7 @@ export default function Projects() {
         img1={data.img1}
         img2={data.img2}
         disp={data.img3}
+        projectImg={data.projectImg}
         title={data.title}
         dis={data.dis}
       />
@@ -284,8 +288,6 @@ export default function Projects() {
       }}
     >
       <Canvas
-        shadows
-        shadowMap
         colorManagement
         className="canvasText"
 
@@ -300,31 +302,49 @@ export default function Projects() {
           <directionalLight castShadow position={[2.5, 8, 5]} intensity={4.5} />
           <Html>
             <div
-              className="canvasText"
+              className="canvasText projectText"
               style={{
+                visibility: "hidden",
                 width: mobile ? "100vw" : "50vw",
                 pointerEvents: "none",
                 position: "relative",
-                left: mobile ? "-46%" : "-67%",
-                bottom: "18rem",
+                transition: "all 1s ease",
+                left: mobile ? "-46%" : "-88%",
+                bottom: "27rem",
               }}
             >
-              <h1 className="projectTitle"> hi</h1>
+              <h1
+                style={{
+                  position: "relative",
+                  top: "162px",
+                  left: "63px",
+                  transition: "all 1s ease 300ms",
+                }}
+                className="projectTitle"
+              >
+                {" "}
+              </h1>
 
               <img
                 className="projectImg"
                 style={{
-                  position: "absolute",
-                  // top: "-155%",
-                  // left: "-835%",
+                  // position: "relative",
+                  // visibility: "hidden",
+                  // top: "-23%",
+                  // left: "-4rem",
+                  transition: "all 1s ease",
                   width: "100%",
                 }}
-                src={rawPng}
+                // src={}
                 alt="project"
               />
-              <p className="projectAbout">
+              <p
+                style={{
+                  transition: "all 1s ease 300ms",
+                }}
+                className="projectAbout"
+              >
                 {" "}
-                Something about the project and the teak stack
               </p>
             </div>
           </Html>

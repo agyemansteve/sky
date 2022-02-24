@@ -97,7 +97,7 @@ function BigSphere(props) {
   const [active, setActive] = useState(false);
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame(({ clock }, state, delta) => {
-    ref.current.rotation.x += 3;
+    ref.current.rotation.x += 0.01;
 
     // api.position = Math.sin(clock.getElapsedTime());
     ref.current.rotation.y += 0.002;

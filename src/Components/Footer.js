@@ -24,7 +24,7 @@ const Footer = () => {
       fluid
       style={{
         height: mobile ? "100vh" : "65vh",
-        background: `#ECF0F2`,
+        // background: `#ECF0F2`,
       }}
       // className="footer"
     >
@@ -52,7 +52,7 @@ const Footer = () => {
               SITE
               <strong
                 style={{
-                  color: "rgb(149 140 141)",
+                  color: "#770006",
                 }}
               >
                 MAP
@@ -155,7 +155,7 @@ const Footer = () => {
                 }}
               >
                 {" "} */}
-              S.AGYE<strong style={{ color: "rgb(149 140 141)" }}>MEN</strong>
+              S.AGYE<strong style={{ color: "#770006" }}>MEN</strong>
               {/* </i> */}
             </div>
             <div
@@ -200,7 +200,7 @@ const Footer = () => {
               className={"stack-item"}
             >
               CONTACT
-              <strong style={{ color: "rgb(149 140 141)" }}>INFO</strong>{" "}
+              <strong style={{ color: "#770006" }}>INFO</strong>{" "}
             </div>
             <div
               style={{

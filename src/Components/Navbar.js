@@ -84,13 +84,23 @@ class Navbar extends React.Component {
               </Link>
             </li>
             <li onClick={this.props.handleMobileMenuClose}>
-              <Link
-                to="/projects"
+              <a
+                // className="social-icon-link"
                 className="nav-links"
-                // onClick={this.props.handleMobileMenuClose}
+                href="https://github.com/agyemansteve"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 Projects
-              </Link>
+              </a>
+              {/* <Link
+                to="/projects"
+               
+                // onClick={this.props.handleMobileMenuClose}
+              >
+              
+              </Link> */}
             </li>
             <li onClick={this.props.handleMobileMenuClose}>
               <Link
@@ -107,7 +117,7 @@ class Navbar extends React.Component {
                 href="https://github.com/agyemansteve"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label="Github"
               >
                 <OverlayTrigger
                   placement="right"
@@ -128,8 +138,6 @@ class Navbar extends React.Component {
                     ></i>
                   )}
                 </OverlayTrigger>
-
-                {/* <i className="fab fa-github"></i> */}
               </a>
             </li>
             <li onClick={this.props.handleMobileMenuClose}>
@@ -160,18 +168,8 @@ class Navbar extends React.Component {
                     ></i>
                   )}
                 </OverlayTrigger>
-                {/* <i className="fab fa-instagram" /> */}
               </a>{" "}
             </li>
-            {/* <li className="nav-items">
-              <Link
-                to="/social"
-                className="nav-links-mobile"
-                onClick={this.props.handleMobileMenuClose}
-              >
-                SOCIAL
-              </Link>
-            </li> */}
           </ul>
         </div>
       </nav>
