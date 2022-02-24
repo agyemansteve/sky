@@ -46,7 +46,7 @@ const Camera2 = () => {
   controls.autoRotate = false;
   // controls.enableDamping = true;
   // controls.dampingFactor = 0.125;
-  controls.enablePan = true;
+  controls.enablePan = false;
   controls.zoomSpeed = 0.1;
   controls.enableZoom = false;
   controls.panSpeed = 0.001;
@@ -58,8 +58,8 @@ const Camera2 = () => {
   // console.log(camera.position);
   const Foo = ({ vec = new THREE.Vector3() }) => {
     useFrame(() => {
-      let x = (mouse.x * viewport.width) / 4;
-      let y = (mouse.y * viewport.width) / 4;
+      let x = (mouse.x * viewport.width) / 14;
+      let y = (mouse.y * viewport.width) / 14;
 
       // camera.position.lerp(new THREE.Vector3(x, y, 1), 0.1);
       camera.position.lerp(vec.set(x, y, 100), 0.009);
@@ -77,7 +77,7 @@ const Camera2 = () => {
 
   // const x = (mouse.x * viewport.width) / 2;
   // const y = (mouse.y * viewport.width) / 2;
-  //   camera.position.set(0, -2000, -2000);
+  //   camera.position.set(0, -2000, -2000)
   //   camera.position.lerp(new THREE.Vector3(x, y, 1), 0.4);
   //   controls.update();
   // });
@@ -107,7 +107,7 @@ const Home = (props) => {
         textAlign: "center",
         pointerEvents: "none",
         filter: "drop-shadow(2px 4px 6px black)",
-        textShadow: "0px .2px #e9ecef",
+        textShadow: "0px .5px #e9ecef",
         transform: `translate(-50%, -50%)`,
         zIndex: "1",
       }}
@@ -118,7 +118,7 @@ const Home = (props) => {
         He
         <strong
           style={{
-            color: "#770006",
+            color: "rgb(201 201 201)",
             transition: " all .25s ease",
 
             fontSize: mobile ? "15rem" : "30rem",
@@ -189,23 +189,23 @@ const Home = (props) => {
         {introText}
         <Canvas
           // mode="concurrent"
-          onCreated={(s) => {
-            if (s.internal.interaction.length !== 0) {
-              console.log("test");
-            }
-          }}
+          // onCreated={(s) => {
+          //   if (s.internal.interaction.length !== 0) {
+          //     console.log("test");
+          //   }
+          // }}
           // frameloop="demand"
           className="canvas1 canvasText"
           camera={{
             position:
               // [0, 2000, -2000]
 
-              [0, 0, -1900],
+              [0, 0, -190],
             // 0, -2000, -2000
             fov: 60,
             zoom: 1,
-            near: 0.0001,
-            far: 19000,
+            near: 0.001,
+            // far: 1900,
           }}
         >
           <Camera2 />
@@ -219,21 +219,21 @@ const Home = (props) => {
 
               {/* <BillboardGroup /> */}
               <pointLight
-                position={[11170, 1000, 5000]}
+                position={[117, 100, 500]}
                 color="red"
                 intensity={0.1}
               />
               <pointLight
-                position={[-1170, -1000, 5000]}
+                position={[-117, -100, 500]}
                 color="red"
                 intensity={0.1}
               />
 
-              <BigSphere args={[10, 2000, 2000]} position={[0, 0, 0]} />
-              <Sphere position={[1200, 0, 0]} />
-              <Sphere position={[-1200, 0, 0]} />
-              <Sphere position={[0, 0, 950]} />
-              <Sphere position={[0, 0, -950]} />
+              <BigSphere args={[10, 100, 100]} position={[0, 0, 0]} />
+              <Sphere position={[120, 0, 0]} />
+              <Sphere position={[-120, 0, 0]} />
+              <Sphere position={[0, 0, 95]} />
+              <Sphere position={[0, 0, -95]} />
 
               {/* <Sphere position={[0, 0, 1200]} />
               <Sphere position={[0, -1200, 0]} />

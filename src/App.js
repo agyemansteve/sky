@@ -499,8 +499,8 @@ class App extends React.Component {
               <CityView />
               <div
                 style={{
-                  background: "#101012",
-                  color: "white",
+                  background: "rgb(18 52 104)",
+                  color: "#000000",
                 }}
               >
                 <Footer> </Footer>

@@ -63,7 +63,7 @@ function Sphere(props) {
         roughnessMap={roughnessMap}
         matelaness={5}
         roughness={0}
-        color={hovered ? "yellow" : "darkred"}
+        color={hovered ? "yellow" : "white"}
       />
 
       {/* <Environment
@@ -111,7 +111,7 @@ function BigSphere(props) {
       {...props}
       //   position={[1, -2, 1]}
       ref={ref}
-      scale={active ? 1 : 10}
+      scale={active ? 1 : 3}
       onClick={(event) => setActive(!active)}
       // onPointerMove={(e) => {
       //   e.stopPropagation();
@@ -134,7 +134,7 @@ function BigSphere(props) {
         roughnessMap={roughnessMap}
         matelaness={5}
         roughness={0}
-        color={hovered ? "darkred" : "yellow"}
+        color={hovered ? "yellow" : "white"}
       />
 
       <Environment

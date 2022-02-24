@@ -185,7 +185,7 @@ export default function IAM() {
                 style={{
                   padding: mobile ? "2rem 5rem" : "0rem 30%",
                   transition: "all 1s ease",
-                  background: offsetY >= 450 && " #770006",
+                  background: offsetY >= 450 && " black",
                 }}
               >
                 I'm Steve Agyeman, a Manchester United fan and a{" "}
@@ -338,7 +338,7 @@ export default function IAM() {
               : "translateY(300px)"
             : "none",
           transition: "all .5s ease",
-          width: offsetY > 1000 ? "100vw" : "90vw",
+          // width: offsetY > 1000 ? "100vw" : "90vw",
         }}
         fluid
       >
@@ -346,7 +346,7 @@ export default function IAM() {
           className="justify-content-md-center  "
           // md={3}
           style={{
-            // width: offsetY > 1000 ? "100vw" : "90vw",
+            width: !mobile && offsetY > 1000 ? "100vw" : "90vw",
             height: mobile ? "35vh " : "100vh",
             overflow: "hidden",
             position: "relative",

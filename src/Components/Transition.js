@@ -29,7 +29,9 @@ export default function Transition(props) {
   // top col background 22/21q
   const bg1 = `https://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260s`;
 
-  const containeBg = `url(${img1})fixed center center/cover`;
+  const containeBg = mobile
+    ? `url(${img1}) center center/cover`
+    : `url(${img1})fixed center center/cover`;
   const topColsBg = `transparent`;
   const bottomColsBg = `white`;
 
@@ -122,10 +124,10 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
       fluid
       className="welcome2"
       style={{
-        height: mobile ? "341vh" : "481vh",
+        height: mobile ? "341vh" : "390vh",
         backgroundColor: "#fff",
 
-        background: `${containeBg}`,
+        // background: `${containeBg}`,
       }}
     >
       {/* <Opener
@@ -146,7 +148,9 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
           marginBottom: "-1px",
           // opacity: !mobile && (offsetY >= 217 ? "1" : `0`),
           transition: " all 1s ease",
-          background: `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
+          background: mobile
+            ? `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe) center center/cover`
+            : `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
         }}
       >
         <Col
@@ -157,7 +161,9 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
             //   : ` ${offsetY / 35}% ${offsetY / 10 / 3}% `,
             backgroundColor: "#000",
             margin: "1px",
-            background: `no-repeat  url( ${bg1})fixed center center/cover`,
+            background: mobile
+              ? `no-repeat  url( ${bg1})center center/cover`
+              : `no-repeat  url( ${bg1})fixed center center/cover`,
             // background: `#000`,
           }}
         ></Col>
@@ -207,7 +213,9 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
           textAlign: "center",
           // marginTop: "5rem",
 
-          background: `
+          background: mobile
+            ? ` no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe) center center/cover`
+            : `
             no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover
           `,
         }}
@@ -245,7 +253,9 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
           marginBottom: "-1px",
 
           // transform: `translateY(${offsetY * -0.1}px)`,
-          background: `
+          background: mobile
+            ? `no-repeat  url(${bg1}) center center/cover`
+            : `
             no-repeat  url(${bg1})fixed center center/cover
           `,
           // borderTop: "1px solid",
@@ -280,7 +290,9 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
 
           transform: `translateY(${offsetY / -150}%)`,
 
-          background: `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
+          background: mobile
+            ? `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)center center/cover`
+            : `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
         }}
       >
         {" "}
