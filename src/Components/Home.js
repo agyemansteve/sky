@@ -91,7 +91,7 @@ const Home = (props) => {
   const handleScroll = () => setOffsetY(window.pageYOffset);
   // const textsize = offsetY / 12;
 
-  console.log(offsetY);
+  // console.log(offsetY);
   // const [show, setShow] = useState();
 
   const introText = (
@@ -188,7 +188,7 @@ const Home = (props) => {
       >
         {introText}
         <Canvas
-          mode="concurrent"
+          // mode="concurrent"
           onCreated={(s) => {
             if (s.internal.interaction.length !== 0) {
               console.log("test");
