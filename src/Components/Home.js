@@ -28,7 +28,7 @@ import About from "./About";
 // import Opener from "./Opener";
 
 const homebg = `url(${clouds})fixed center center/120%`;
-const homeMobilebg = `url(${clouds})fixed center center/cover`;
+const homeMobilebg = `url(${clouds}) center center/cover`;
 // const bg1 = `#FFFF no-repeat url(${img2}) top center/contain`;
 
 extend({ GlitchPass, FilmPass });
