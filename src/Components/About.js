@@ -6,8 +6,6 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-import img1 from "../images/img1.jpg";
-
 import img2 from "../images/img2.jpg";
 
 import Container from "react-bootstrap/Container";

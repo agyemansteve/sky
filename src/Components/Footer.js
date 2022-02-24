@@ -67,7 +67,11 @@ const Footer = () => {
             >
               <Link
                 to="/"
-                style={{ textDecoration: "none", fontSize: "1rem" }}
+                style={{
+                  textDecoration: "none",
+                  fontSize: ".7rem",
+                  textShadow: "1px 1px 0px white",
+                }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
@@ -83,7 +87,11 @@ const Footer = () => {
             >
               <Link
                 to="/work"
-                style={{ textDecoration: "none", fontSize: "1rem" }}
+                style={{
+                  textDecoration: "none",
+                  fontSize: ".7rem",
+                  textShadow: "1px 1px 0px white",
+                }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
@@ -99,7 +107,11 @@ const Footer = () => {
             >
               <Link
                 to="/contact"
-                style={{ textDecoration: "none", fontSize: "1rem" }}
+                style={{
+                  textDecoration: "none",
+                  fontSize: ".7rem",
+                  textShadow: "1px 1px 0px white",
+                }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
@@ -216,7 +228,11 @@ const Footer = () => {
               }}
               className={"tack-item"}
             >
-              <a className="nav-links" href="mailto:nkzdev233@gmail.com">
+              <a
+                className="nav-links"
+                style={{ fontSize: ".7rem", textShadow: "1px 1px 0px white" }}
+                href="mailto:nkzdev233@gmail.com"
+              >
                 nkzdev233@gmail.com
               </a>
             </div>

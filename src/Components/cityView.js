@@ -12,14 +12,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import Spinner from "react-bootstrap/Spinner";
 // import Button from "react-bootstrap/Button";
 // import { Link } from "react-router-dom";
-import ThreeImg from "./ThreeImg";
 // import img1 from "../images/img1.jpg";
 
 import {
   Billboard,
-  // Text,
-  Effects,
-  Environment,
   // OrbitControls as DreiControls,
   Preload,
   Html,

@@ -107,7 +107,7 @@ const Home = (props) => {
         textAlign: "center",
         pointerEvents: "none",
         filter: "drop-shadow(2px 4px 6px black)",
-        textShadow: "rgb(227 226 226) 0px -1px 0px;",
+        textShadow: "0px .2px #e9ecef",
         transform: `translate(-50%, -50%)`,
         zIndex: "1",
       }}
