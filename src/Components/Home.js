@@ -28,7 +28,7 @@ import About from "./About";
 // import Opener from "./Opener";
 
 const homebg = `url(${clouds})fixed center center/120%`;
-const homeMobilebg = `url(${clouds}) center center/cover`;
+const homeMobilebg = `none`;
 // const bg1 = `#FFFF no-repeat url(${img2}) top center/contain`;
 
 extend({ GlitchPass, FilmPass });
@@ -106,6 +106,8 @@ const Home = (props) => {
         top: mobile ? "50%" : "45%",
         textAlign: "center",
         pointerEvents: "none",
+        filter: "drop-shadow(2px 4px 6px black)",
+        textShadow: "rgb(227 226 226) 0px -1px 0px;",
         transform: `translate(-50%, -50%)`,
         zIndex: "1",
       }}

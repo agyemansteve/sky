@@ -53,6 +53,7 @@ class Navbar extends React.Component {
                   fontSize: "1.8rem",
                   fontWeight: "900",
                   color: "#770006",
+                  textShadow: "none",
                 }}
               ></i>
             ) : (

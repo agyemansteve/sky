@@ -13,11 +13,11 @@ font-family: 'Satisfy', cursive; */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 body {
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
   background: linear-gradient(180deg, #00b8e2, #222121, black, white, white);
 
   /* background: linear-gradient(180deg, #778e97, white, black, white, white); */
@@ -180,9 +180,9 @@ vw
 
 .nav-links {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 2rem;
   /* text-shadow: 0px 1px 3px black, 0px 1px 3px black; */
-  font-weight: 200;
+  font-weight: 300;
   /* border-bottom: 1px solid #770006; */
   text-shadow: 0px 1px 0px white, -1px 1px 0px white;
   color: #000000 !important;
@@ -728,7 +728,8 @@ vw
   }
   .stack-item {
     background: transparent !important;
-    color: black;
+    color: rgb(255, 255, 255);
+    font-size: 0.9rem !important;
     border: none !important;
   }
 
@@ -806,7 +807,7 @@ vw
     color: #000000;
     padding: 2rem;
     width: 100%;
-    text-shadow: none;
+    text-shadow: 0px 1px 0px white, -1px 1px 0px white;
   }
 
   .nav-links:hover {

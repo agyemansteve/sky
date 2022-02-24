@@ -206,6 +206,7 @@ const Cityview = (props) => {
           ? `url(${img2}) center center/cover`
           : `url(${img2}) center center/cover fixed`,
         filter: " invert(1)",
+        paddingBottom: " 20%",
       }}
       className="cityView "
     >

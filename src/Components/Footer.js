@@ -67,7 +67,7 @@ const Footer = () => {
             >
               <Link
                 to="/"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", fontSize: "1rem" }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
@@ -83,7 +83,7 @@ const Footer = () => {
             >
               <Link
                 to="/work"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", fontSize: "1rem" }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
@@ -99,7 +99,7 @@ const Footer = () => {
             >
               <Link
                 to="/contact"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", fontSize: "1rem" }}
                 className="nav-links"
                 // onClick={this.props.handleMobileMenuClose}
               >
