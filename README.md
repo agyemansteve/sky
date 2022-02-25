@@ -18,10 +18,12 @@
 -  Axios
 - Bootstrap
 - Isomorphic-fetch
-- React-Router-dom
-- React-Scroll
+- React-router-dom
+- React-scroll
 - React-three-fiber
 - React spring
+- Netlify cli
+- Netlify Functions
 
 ## License
 
