@@ -124,7 +124,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
       fluid
       className="welcome2"
       style={{
-        height: mobile ? "341vh" : "390vh",
+        height: mobile ? "341vh" : "401vh",
         backgroundColor: "#fff",
 
         // background: `${containeBg}`,
@@ -203,7 +203,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
       {/* LEFT SIDE BAR */}
 
       <Row
-        className="topCol"
+        className="welcome2"
         style={{
           height: mobile ? "20vh" : "165vh",
           transition: "all 1s ease",
@@ -224,7 +224,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
           style={{ textAlign: "center ", display: mobile ? "none" : "block" }}
         >
           <div
-            className="topCol"
+            className="topCol welcome2"
             style={{
               // background: "#770006",
               height: mobile ? "360px" : "40%",
@@ -235,6 +235,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
               
               ${containeBg}
              `,
+              filter: "hue-rotate(158deg)",
 
               transform: `translateX(${offsetY / -70}%)`,
             }}

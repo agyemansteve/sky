@@ -18,9 +18,17 @@ html {
 
 body {
   overscroll-behavior-y: none;
-  background: linear-gradient(180deg, #00b8e2, #222121, black, white, white);
+  /* background: linear-gradient(180deg, #05252c, #222121, black, white, white); */
 
-  /* background: linear-gradient(180deg, #778e97, white, black, white, white); */
+  background: linear-gradient(
+    180deg,
+    #050706,
+    #171718,
+    /* #f0f0ee,
+    #f0f0ee, */ #121214,
+    #131314,
+    rgb(255, 255, 255)
+  );
   /* background-image: url("./images/future.jpg"); */
 }
 
@@ -135,7 +143,7 @@ body {
   /* cursor: pointer; */
   text-decoration: none;
   display: flex;
-  color: #770006;
+  color: #12b54d;
   font-size: large;
   font-weight: bolder;
   flex-direction: row;
@@ -171,7 +179,7 @@ vw
 }
 .menu-icon {
   display: none;
-  color: #770006 !important;
+  color: #12b54d !important;
 }
 
 .nav-items {
@@ -182,9 +190,9 @@ vw
   text-decoration: none;
   font-size: 1.4rem;
   /* text-shadow: 0px 1px 3px black, 0px 1px 3px black; */
-  font-weight: 400;
-  /* border-bottom: 1px solid #770006; */
-  text-shadow: 5px 7px 0px white;
+  font-weight: 200;
+  /* border-bottom: 1px solid #12b54d; */
+  text-shadow: 0.5px 0.2px 0px white;
   color: #000000 !important;
 }
 
@@ -314,7 +322,7 @@ vw
 } */
 
 .item {
-  color: #770006;
+  color: #12b54d;
   background: transparent !important;
   display: flex;
   align-items: center;
@@ -515,33 +523,33 @@ vw
   margin-top: 10%;
 }
 
-.bg-zoom {
-  animation: bg-zoom 3s ease 2 alternate-reverse both;
-}
-
 .pageFade {
-  animation: fade 1s ease-in-out;
-}
-
-@keyframes bg-zoom {
-  0% {
-    transform: scale(0.9) translate(0, 0);
-    transform-origin: 100% 50%;
-  }
-  100% {
-    transform: scale(1) translateX(0px);
-    transform-origin: right;
-  }
+  animation: fade 2s ease;
 }
 
 @keyframes fade {
   0% {
     opacity: 0;
-    width: 0;
+    /* margin: auto; */
+    /* transform: scale(1.1); */
+    /* transform-origin: top; */
+    /* width: 0; */
+  }
+  50% {
+    /* opacity: 1; */
+    /* width: 100vw; */
+    /* transform: scale(0.999); */
+
+    /* transform: scale(1.1); */
+    /* transform-origin: center; */
   }
   100% {
     opacity: 1;
-    width: 100vw;
+    /* margin: auto; */
+    /* transform: scale(1); */
+    /* transform-origin: top; */
+
+    /* width: 100vw; */
   }
 }
 
@@ -564,23 +572,34 @@ vw
 
 /*  */
 
+.btn-outline-info {
+  color: #12b54d;
+  border-color: #12b54d;
+}
+
+.btn-outline-info:hover {
+  color: white;
+  background-color: #12b54d;
+  border-color: #12b54d;
+}
+
 .links {
   text-decoration: none;
   /* margin: 2rem; */
   padding: 0.5rem;
-  border: 1px solid #770006 !important;
+  border: 1px solid #12b54d !important;
   border-radius: 0.1rem;
   background: #ffffff !important;
   position: relative;
   top: 0;
-  /* color: #770006 !important; */
+  /* color: #12b54d !important; */
   color: #000000 !important;
   transition: all 2s ease-in-out;
-  /* box-shadow: -3px 3px #770006, -2px 2px rgb(0 0 0 / 40%); */
+  /* box-shadow: -3px 3px #12b54d, -2px 2px rgb(0 0 0 / 40%); */
 }
 
 /* .links:hover {
-  background: #770006;
+  background: #12b54d;
   color: #ffffff;
 } */
 .links.b-3 {
@@ -588,9 +607,9 @@ vw
 }
 
 .links.b-3:hover {
-  background: #770006 !important;
+  background: #12b54d !important;
   color: #ffffff !important;
-  border: 2px solid #770006 !important;
+  border: 2px solid #12b54d !important;
 
   /* top: -0.5em; */
   box-shadow: -10px 10px #ffff, 9px -12px rgb(0 0 0);
@@ -598,7 +617,7 @@ vw
 }
 
 .links.b-3:active {
-  border: 2px solid #770006 !important;
+  border: 2px solid #12b54d !important;
   top: 0.4em;
   box-shadow: 0 0.2em #ffffff, 0 0.5em rgba(0, 0, 0);
 }
@@ -642,8 +661,8 @@ vw
   bottom: 46px;
   /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-  filter: invert(1);
-  left: 49%;
+  filter: invert(1) brightness(0.3);
+  left: 70%;
   z-index: -1;
   width: 100%;
   position: absolute;
@@ -661,8 +680,8 @@ vw
   bottom: 46px;
   /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-  filter: invert(1);
-  left: -49%;
+  filter: invert(1) brightness(0.3);
+  left: 21%;
   z-index: -1;
   width: 100%;
   position: absolute;
@@ -677,11 +696,13 @@ vw
   content: " ";
   /* background: #cce7; */
   height: 75vh;
-  background: #0000002e;
+  /* background: #000000; */
+  background: fixed center center/cover url(./images/img2.jpg);
+
   /* top: 45%; */
   bottom: 46px;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  filter: invert(1);
+  filter: invert(1) brightness(0.3);
   /* left: 10%; */
   z-index: -1;
   width: 100%;
@@ -812,7 +833,7 @@ vw
 
   .nav-links:hover {
     /* background-color: #fff; */
-    color: #770006;
+    color: #12b54d;
     border-radius: 0;
   }
 

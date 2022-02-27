@@ -63,7 +63,7 @@ function Sphere(props) {
         roughnessMap={roughnessMap}
         matelaness={5}
         roughness={0}
-        color={hovered ? "yellow" : "white"}
+        color={hovered ? "white" : "yellow"}
       />
 
       {/* <Environment
@@ -134,7 +134,7 @@ function BigSphere(props) {
         roughnessMap={roughnessMap}
         matelaness={5}
         roughness={0}
-        color={hovered ? "yellow" : "white"}
+        color={hovered ? "white" : "#00d285"}
       />
 
       <Environment

@@ -70,6 +70,7 @@ const ContactForm = () => {
         Contact{"  "}
       </h1>
       <form
+        className="observed"
         style={{
           flexDirection: "column",
           //   transform: `translate(-50%, -50%)`,

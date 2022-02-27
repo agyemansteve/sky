@@ -56,13 +56,13 @@ const Camera2 = () => {
 
   useFrame(() => {
     // console.log(mouse.x);
-    const x = (mouse.x * viewport.width) / 4 + 1;
-    const y = (mouse.y * viewport.width) / 4 + 1;
+    const x = (mouse.x * viewport.width) / 4;
+    const y = (mouse.y * viewport.width) / 4;
 
     // camera.position.x = (mouse.x * viewport.width) / 4;
     // camera.position.y = (mouse.y * viewport.width) / 4;
-    camera.position.set(-10, 0, 10);
-    camera.position.lerp(new THREE.Vector3(x, y, 1), 0.5);
+    // camera.position.set(-10, 0, 10);
+    camera.position.lerp(new THREE.Vector3(x, y, 2), 0.5);
     // if (camera.position.x <= -950) {
     //   camera.position.x = 900;
     //   camera.position.z -= 200;
@@ -133,12 +133,13 @@ const BillboardGroup = () => {
           position={[0, 0, 0]}
         >
           <Box args={[0.03, 5, 5]} position={[0, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, 1, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, -1, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, 2, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, -2, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, 3, 0]} />
-          <Box args={[0.03, 5, 5]} position={[0, -3, 0]} />
+          <Box args={[0.03, 5, 5]} position={[1, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[-1, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[2, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[-2, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[3, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[-4, 0, 0]} />
+          <Box args={[0.03, 5, 5]} position={[-5, 0, 0]} />
 
           {/* <ThreeImg args={[1, 1]} img1={img1} img2={img2} disp={img3} /> */}
 
@@ -201,10 +202,12 @@ const Cityview = (props) => {
         background: mobile
           ? `url(${img2}) center center/cover`
           : `url(${img2}) center center/cover fixed`,
-        filter: " invert(1)",
-        paddingBottom: " 20%",
+        filter: " hue-rotate(158deg)",
+        paddingBottom: " 10%",
+        paddingTop: "10%",
       }}
       className="cityView "
+      id="cityView"
     >
       <div>
         <Canvas

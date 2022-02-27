@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import Move from "./Move";
 import clouds from "../images/rawpixel.png";
+import img2 from "../images/img2.jpg";
 
 // import Spinner from "react-bootstrap/Spinner";
 
@@ -22,12 +23,13 @@ import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 
 import { Sphere, BigSphere } from "./Sphere";
 import About from "./About";
+import { ScrollLinkButton } from "./ScrollLinkButton";
 
 // import { height } from "dom-helpers";
 // import Cityview from "./cityView";
 // import Opener from "./Opener";
 
-const homebg = `url(${clouds})fixed center center/120%`;
+const homebg = `url(${img2})fixed center center/120%`;
 const homeMobilebg = `none`;
 // const bg1 = `#FFFF no-repeat url(${img2}) top center/contain`;
 
@@ -58,11 +60,11 @@ const Camera2 = () => {
   // console.log(camera.position);
   const Foo = ({ vec = new THREE.Vector3() }) => {
     useFrame(() => {
-      let x = (mouse.x * viewport.width) / 14;
-      let y = (mouse.y * viewport.width) / 14;
+      let x = (mouse.x * viewport.width) / 10;
+      let y = (mouse.y * viewport.width) / 10;
 
       // camera.position.lerp(new THREE.Vector3(x, y, 1), 0.1);
-      camera.position.lerp(vec.set(x, y, 100), 0.009);
+      camera.position.lerp(vec.set(x, y, 150), 0.009);
       controls.update();
 
       // camera.position.set(9, 11, 9);
@@ -94,31 +96,20 @@ const Home = (props) => {
   // console.log(offsetY);
   // const [show, setShow] = useState();
 
-  const introText = (
-    <div
-      className="canvasText  "
-      style={{
-        // display: "block",
-        // width: "100%",
-        color: "black",
-        position: "absolute",
-        left: "50%",
-        top: mobile ? "50%" : "45%",
-        textAlign: "center",
-        pointerEvents: "none",
-        filter: "drop-shadow(2px 4px 6px black)",
-        textShadow: "0px .5px #e9ecef",
-        transform: `translate(-50%, -50%)`,
-        zIndex: "1",
-      }}
-    >
+  const _hello = (
+    <>
+      {" "}
       <h1
-        style={{ fontSize: mobile ? "9rem" : "20rem", pointerEvents: "none" }}
+        style={{
+          fontSize: mobile ? "9rem" : "20rem",
+          pointerEvents: "none",
+          transition: "all 2s ease",
+        }}
       >
         He
         <strong
           style={{
-            color: "rgb(201 201 201)",
+            color: "yellow",
             transition: " all .25s ease",
 
             fontSize: mobile ? "15rem" : "30rem",
@@ -130,17 +121,58 @@ const Home = (props) => {
         </strong>
         o{" "}
       </h1>
-      {/* <p
+    </>
+  );
+
+  const _wellcome = (
+    <>
+      {" "}
+      <h1
         style={{
-          fontSize: ".6rem",
-          color: "#000",
+          fontSize: mobile ? "3rem" : "15rem",
           pointerEvents: "none",
-          letterSpacing: "4px",
+          transition: "all 2s ease",
         }}
       >
-        {" "}
-        Welcome to my portfolio site
-      </p> */}
+        We
+        <strong
+          style={{
+            color: "yellow",
+            transition: " all .25s ease",
+
+            fontSize: mobile ? "15rem" : "30rem",
+
+            fontWeight: "100",
+          }}
+        >
+          ll
+        </strong>
+        come{" "}
+      </h1>{" "}
+    </>
+  );
+
+  const introText = (
+    <div
+      className="canvasText  helloText"
+      style={{
+        // display: "block",
+        // width: "100%",
+        // display: props.show ? "none" : "block",
+        color: "#dcd2da",
+        position: "absolute",
+        left: "50%",
+        top: mobile ? "50%" : "45%",
+        textAlign: "center",
+        pointerEvents: "none",
+        filter: "drop-shadow(2px 4px 6px black)",
+        textShadow: "0px .5px #000000",
+        transform: `translate(-50%, -50%)`,
+        transition: "all 4s ease ",
+        zIndex: "1",
+      }}
+    >
+      {props.show ? _wellcome : _hello}
     </div>
   );
   // const [{ background }] = useSpring(
@@ -174,15 +206,16 @@ const Home = (props) => {
     <div
       style={{
         overflow: "hidden",
-        background: mobile ? homeMobilebg : homebg,
+        // background: mobile ? homeMobilebg : homebg,
         // backgroundColor: background,
       }}
       className="home"
     >
       <div
         style={{
-          cursor: "none",
-          // background: `${homebg}`,
+          // cursor: "none",
+          filter: "hue-rotate(158deg)",
+          background: `${homebg}`,
         }}
         className="top"
       >
@@ -200,11 +233,11 @@ const Home = (props) => {
             position:
               // [0, 2000, -2000]
 
-              [0, 0, -190],
+              [900, 990, 0],
             // 0, -2000, -2000
             fov: 60,
             zoom: 1,
-            near: 0.001,
+            near: 0.0001,
             // far: 1900,
           }}
         >
@@ -232,8 +265,8 @@ const Home = (props) => {
               <BigSphere args={[10, 100, 100]} position={[0, 0, 0]} />
               <Sphere position={[120, 0, 0]} />
               <Sphere position={[-120, 0, 0]} />
-              <Sphere position={[0, 0, 95]} />
-              <Sphere position={[0, 0, -95]} />
+              <Sphere position={[0, 0, 120]} />
+              <Sphere position={[0, 0, -120]} />
 
               {/* <Sphere position={[0, 0, 1200]} />
               <Sphere position={[0, -1200, 0]} />
@@ -261,16 +294,7 @@ const Home = (props) => {
             zIndex: "1",
           }}
         >
-          <Link
-            to="/work"
-            style={{
-              textDecoration: "none",
-              opacity: ".5",
-              transition: "all 2s",
-            }}
-            // className="nav-links"
-            // onClick={this.props.handleMobileMenuClose}
-          >
+          <ScrollLinkButton to="aboutMe">
             <svg
               width="24"
               height="24"
@@ -284,15 +308,7 @@ const Home = (props) => {
             >
               <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
             </svg>
-            {/* <Button
-              className="links b-3"
-              style={{
-                opacity: offsetY > 10 ? "0" : "1",
-                transition: ".5s ease",
-              }}
 
-             
-            > */}
             <span
               style={{
                 fontFamily: "'Libre Barcode 39', cursive",
@@ -310,7 +326,6 @@ const Home = (props) => {
               Welcome{" "}
             </span>
 
-            {/* </Button> */}
             <svg
               width="24"
               height="24"
@@ -324,16 +339,7 @@ const Home = (props) => {
             >
               <path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z" />
             </svg>
-          </Link>
-
-          {/* <ScrollLinkButton to="test">
-            <Button
-              // className="links b-3"
-              variant="outline-danger"
-            >
-              ABOUT ME
-            </Button>
-          </ScrollLinkButton> */}
+          </ScrollLinkButton>
         </span>
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"

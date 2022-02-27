@@ -26,6 +26,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       show: "",
+      mobile: false,
       greetings: "Welcome",
       photos: [],
       videos: [],
@@ -54,11 +55,26 @@ class App extends React.Component {
     this.ytHandleSideBarClick = this.ytHandleSideBarClick.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.setFromEvent = this.setFromEvent.bind(this);
+    this.handleMobileState = this.handleMobileState.bind(this);
+  }
+
+  handleMobileState() {
+    if (window.innerWidth <= 768) {
+      this.setState({
+        mobile: true,
+      });
+    } else {
+      this.setState({
+        mobile: false,
+        // photos: response.data.photos,
+      });
+    }
   }
 
   componentDidMount() {
     this._isMounted = true;
     // window.scrollTo(0, 0);
+
     this.showTimeout = setTimeout(
       () =>
         this.setState({
@@ -71,6 +87,8 @@ class App extends React.Component {
 
     window.addEventListener("mousemove", this.setFromEvent);
 
+    this.handleMobileState();
+
     this.handleScroll();
 
     this.handleGreeting();
@@ -78,6 +96,9 @@ class App extends React.Component {
     this.timerID2 = setTimeout(() => {
       // const time = 35000;
       this.handleVisibility();
+
+      // const helloText = document.querySelector(".helloText");
+      // helloText.style.visibility = "hidden";
     }, 2000);
   }
 
@@ -153,9 +174,13 @@ class App extends React.Component {
 
         photographer = response.data.photos[rndNum].photographer;
 
-        section.style.background = `url(${pic}) fixed center center/cover`;
+        section.style.background = this.state.mobile
+          ? `url(${pic}) center center/cover`
+          : `url(${pic}) fixed center center/cover`;
         topCols.forEach((col) => {
-          col.style.background = `url(${pic})fixed center center/cover`;
+          col.style.background = this.state.mobile
+            ? `url(${pic}) center center/cover`
+            : `url(${pic})fixed center center/cover`;
         });
 
         section2s.forEach((section) => {
@@ -185,14 +210,20 @@ class App extends React.Component {
     // console.log(aurthor);
     const clickedsrc = e.target.src;
 
-    section.style.background = `   no-repeat  url(${clickedsrc})  fixed center center/cover`;
+    section.style.background = this.state.mobile
+      ? `   no-repeat  url(${clickedsrc})  center center/cover`
+      : `   no-repeat  url(${clickedsrc})  fixed center center/cover`;
 
     section2s.forEach((section) => {
-      section.style.background = ` no-repeat  url(${clickedsrc})  fixed center center/cover`;
+      section.style.background = this.state.mobile
+        ? ` no-repeat  url(${clickedsrc})   center center/cover`
+        : ` no-repeat  url(${clickedsrc})  fixed center center/cover`;
     });
 
     // section3.style.background = `no-repeat  url(${clickedsrc}) fixed center center/cover`;
-    section4.style.background = `no-repeat  url(${clickedsrc}) fixed center center/cover`;
+    section4.style.background = this.state.mobile
+      ? ` no-repeat  url(${clickedsrc})   center center/cover`
+      : `no-repeat  url(${clickedsrc}) fixed center center/cover`;
 
     // topCols.forEach((col) => {
     //   col.style.background = `no-repeat  url(${clickedsrc}) fixed center center/cover`;
@@ -267,7 +298,7 @@ class App extends React.Component {
     const option = {
       root: null,
       threshold: 0,
-      rootMargin: "150px",
+      // rootMargin: "150px",
     };
 
     const elementObserver = new IntersectionObserver(function (entries) {
@@ -422,9 +453,11 @@ class App extends React.Component {
   }
 
   render() {
+    // console.log(this.state.mobile);
+
     return (
       <div
-        className="app"
+        className="app pageFade"
         style={{
           display: "none",
         }}
@@ -448,15 +481,12 @@ class App extends React.Component {
           handleNavToggleClick={this.handleNavToggleClick}
           handleMobileMenuClose={this.handleMobileMenuClose}
         />
-        {/* <Cursor /> */}
+
         <Switch>
           <Route path="/work">
-            {/* <Cursor /> */}
-
             <React.Suspense fallback={<>LOADING...</>}>
               <Transition
                 authorName={this.state.author}
-                // author2Name={this.state.author2}
                 pexelQuery={this.state.pexelQuery}
                 youtubeSrc={this.state.youtubeSrc}
                 youtubeId={this.state.youtubeId}
@@ -470,44 +500,34 @@ class App extends React.Component {
                 handleYTSearchChange={this.handleYTSearchChange}
                 handleSideBarClick={this.handleSideBarClick}
                 ytHandleSideBarClick={this.ytHandleSideBarClick}
-                // show={this.state.show}
                 photos={this.state.photos}
                 videos={this.state.videos}
               />
-              <Footer> </Footer>
             </React.Suspense>
-            {/* <ProjectSec /> */}
           </Route>
 
           <Route path="/contact">
             <React.Suspense fallback={<>LOADING...</>}>
               <CityView />
-              <Footer> </Footer>
             </React.Suspense>
           </Route>
           <Route path="/">
-            {/* <Cursor /> */}
-
             <Home
               show={this.state.show}
-              //  greetings={this.state.greetings}
               onChange={this.handleGreeting}
               greetings={this.state.greetings}
             />
 
             <React.Suspense fallback={<>LOADING...</>}>
               <CityView />
-              <div
-                style={{
-                  background: "rgb(18 52 104)",
-                  color: "#000000",
-                }}
-              >
-                <Footer> </Footer>
-              </div>
             </React.Suspense>
           </Route>
         </Switch>
+
+        <React.Suspense fallback={<>LOADING...</>}>
+          {" "}
+          <Footer> </Footer>{" "}
+        </React.Suspense>
       </div>
     );
   }

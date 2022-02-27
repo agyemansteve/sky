@@ -69,7 +69,7 @@ function Box(props) {
         roughnessMap={roughnessMap}
         matelaness={1}
         roughness={0.5}
-        color={hovered ? "black" : "darkred"}
+        color={hovered ? "white" : "yellow"}
       ></meshStandardMaterial>
 
       <Environment

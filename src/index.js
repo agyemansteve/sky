@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
+import Loader from "./Components/Loader";
 
 window.addEventListener("load", function () {
   this.setTimeout(() => {
@@ -10,13 +11,15 @@ window.addEventListener("load", function () {
     const preloader = document.querySelector(".preloader");
     preloader.style.display = "none";
     app.style.display = "block";
-  }, 5000);
+  }, 6000);
 });
 
 ReactDOM.render(
   // <React.StrictMode>
   <Router>
-    <div className="preloader"> loaidng </div>
+    <div className="preloader">
+      <Loader />
+    </div>
     <App />
   </Router>,
   // </React.StrictMode>

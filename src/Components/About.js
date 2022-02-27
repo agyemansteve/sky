@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import img2 from "../images/img2.jpg";
 
 import Container from "react-bootstrap/Container";
+import { ScrollLinkButton } from "./ScrollLinkButton";
 
 export default function IAM() {
   const [offsetY, setOffsetY] = useState(0);
@@ -123,6 +124,7 @@ export default function IAM() {
       <Container fluid>
         <Row
           className="iam "
+          id="aboutMe"
           style={{
             height: mobile ? "57vh" : "88vh",
           }}
@@ -165,15 +167,16 @@ export default function IAM() {
               }}
             >
               <h1
+                className=" observed"
                 style={{
                   borderBottom: "1px solid white",
                   // padding: "11%",
                   paddingTop: "15%",
                   paddingBottom: "7%",
                   fontSize: "3rem",
-                  color: "black",
+                  color: "white",
                   fontWeight: "800",
-                  textShadow: "14px 20px #e3e2e2",
+                  textShadow: "14px 20px #12b54d",
                 }}
               >
                 {" "}
@@ -182,10 +185,13 @@ export default function IAM() {
 
               {/* <h3> STEVE AGYEMAN </h3> */}
               <p
+                className=" observed"
                 style={{
-                  padding: mobile ? "2rem 5rem" : "0rem 30%",
+                  padding: mobile ? "2rem 5rem" : "0rem 35%",
                   transition: "all 1s ease",
-                  background: offsetY >= 450 && " black",
+                  // filter: "invert(1)",
+                  color: "black",
+                  background: mobile ? offsetY >= 450 && " black" : `#eff0ee`,
                 }}
               >
                 I'm Steve Agyeman, a Manchester United fan and a{" "}
@@ -279,8 +285,8 @@ export default function IAM() {
                 .
               </p>
 
-              <p style={{}}>
-                Check out some example{" "}
+              <p className=" observed">
+                An exapmle of my work can be found{" "}
                 <strong
                   style={{
                     fontStyle: "italic",
@@ -289,9 +295,19 @@ export default function IAM() {
                   }}
                   className="skill"
                 >
-                  apps
+                  <Link
+                    className=" observed"
+                    to="/work"
+                    style={{
+                      // display: mobile && "none",
+                      textDecoration: "none",
+                      color: "#12b54d",
+                    }}
+                  >
+                    here
+                  </Link>
                 </strong>{" "}
-                and feel free to{" "}
+                and other Projects can be found{" "}
                 <strong
                   style={{
                     fontStyle: "italic",
@@ -300,12 +316,28 @@ export default function IAM() {
                   }}
                   className="skill"
                 >
-                  get in touch
+                  <a
+                    style={{
+                      textDecoration: "none",
+                      color: "#12b54d",
+                    }}
+                    // className="social-icon-link"
+                    // className="nav-links"
+                    href="https://github.com/agyemansteve"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    here
+                  </a>
                 </strong>{" "}
                 .
               </p>
+              <ScrollLinkButton to="cityView">
+                <Button variant="outline-info">Get in touch</Button>
+              </ScrollLinkButton>
 
-              <Link
+              {/* <Link
                 to="/work"
                 style={{
                   display: mobile && "none",
@@ -322,7 +354,7 @@ export default function IAM() {
                 >
                   Learn More
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </Col>
         </Row>
@@ -346,7 +378,7 @@ export default function IAM() {
           className="justify-content-md-center  "
           // md={3}
           style={{
-            width: !mobile && offsetY > 1000 ? "100vw" : "90vw",
+            // width: !mobile && offsetY > 1000 ? "100vw" : "90vw",
             height: mobile ? "35vh " : "100vh",
             overflow: "hidden",
             position: "relative",
@@ -373,7 +405,7 @@ export default function IAM() {
                 height: mobile ? "80%" : "100%",
                 width: "100%",
                 color: "white",
-                filter: !mobile && " invert(1)",
+                filter: !mobile && " invert(1) ",
                 // backdropFilter: "brightness(0.5)",
                 transform: `scale(.8)`,
                 // border: "1px solid",
@@ -411,7 +443,7 @@ export default function IAM() {
           </Col>
         </Row>
       </Container>
-      <Container
+      {/* <Container
         style={{
           display: mobile && "none",
           background: mobile
@@ -440,7 +472,7 @@ export default function IAM() {
         //   margin: "auto",
         // }}
         ></Row>
-      </Container>
+      </Container> */}
     </>
   );
 }

@@ -24,7 +24,7 @@ const Footer = () => {
       fluid
       style={{
         height: mobile ? "100vh" : "65vh",
-        // background: `#ECF0F2`,
+        background: `#ECF0F2`,
       }}
       // className="footer"
     >
@@ -52,7 +52,7 @@ const Footer = () => {
               SITE
               <strong
                 style={{
-                  color: "#770006",
+                  color: "#12b54d",
                 }}
               >
                 MAP
@@ -167,7 +167,7 @@ const Footer = () => {
                 }}
               >
                 {" "} */}
-              S.AGYE<strong style={{ color: "#770006" }}>MEN</strong>
+              S.AGYE<strong style={{ color: "#12b54d" }}>MEN</strong>
               {/* </i> */}
             </div>
             <div
@@ -186,6 +186,7 @@ const Footer = () => {
             >
               Images provided by
               <a
+                style={{ color: "#12b54d" }}
                 // className="nav-links"
                 href="https://www.pexels.com/"
                 target="_blank"
@@ -212,7 +213,7 @@ const Footer = () => {
               className={"stack-item"}
             >
               CONTACT
-              <strong style={{ color: "#770006" }}>INFO</strong>{" "}
+              <strong style={{ color: "#12b54d" }}>INFO</strong>{" "}
             </div>
             <div
               style={{
