@@ -11,6 +11,7 @@ import axios from "axios";
 import Home from "./Components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Loader from "./Components/Loader";
 // import Cityview from "./Components/cityView";
 // import ContactForm from "./Components/ContactForm";
 // import ProjectSec from "./Components/ProjectSec";
@@ -507,7 +508,7 @@ class App extends React.Component {
           </Route>
 
           <Route path="/contact">
-            <React.Suspense fallback={<>LOADING...</>}>
+            <React.Suspense fallback={<Loader />}>
               <CityView />
             </React.Suspense>
           </Route>
@@ -518,13 +519,13 @@ class App extends React.Component {
               greetings={this.state.greetings}
             />
 
-            <React.Suspense fallback={<>LOADING...</>}>
+            <React.Suspense fallback={<Loader />}>
               <CityView />
             </React.Suspense>
           </Route>
         </Switch>
 
-        <React.Suspense fallback={<>LOADING...</>}>
+        <React.Suspense fallback={<Loader />}>
           {" "}
           <Footer> </Footer>{" "}
         </React.Suspense>

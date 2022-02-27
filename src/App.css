@@ -801,7 +801,7 @@ vw
     animation: fade 4s;
   }
   .top {
-    /* height: 100vh; */
+    height: 60vh;
     display: block;
   }
   .introVid {
@@ -813,7 +813,7 @@ vw
   .nav-menu.active {
     position: absolute;
     top: -62px;
-    background: #879ca4;
+    background: #dee2e6;
     width: 100%;
     height: 113vh;
     align-items: stretch;

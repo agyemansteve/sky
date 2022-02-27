@@ -8,11 +8,6 @@ import img2 from "../images/img2.jpg";
 // import img3 from "../images/img3.jpg";
 // import { Physics } from "@react-three/cannon";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-// import Move from "./Move";
-// import Spinner from "react-bootstrap/Spinner";
-// import Button from "react-bootstrap/Button";
-// import { Link } from "react-router-dom";
-// import img1 from "../images/img1.jpg";
 
 import {
   Billboard,
@@ -61,8 +56,8 @@ const Camera2 = () => {
 
     // camera.position.x = (mouse.x * viewport.width) / 4;
     // camera.position.y = (mouse.y * viewport.width) / 4;
-    // camera.position.set(-10, 0, 10);
-    camera.position.lerp(new THREE.Vector3(x, y, 2), 0.5);
+    camera.position.set(0, 0, 10);
+    camera.position.lerp(new THREE.Vector3(x, y, 0.5), 0.6);
     // if (camera.position.x <= -950) {
     //   camera.position.x = 900;
     //   camera.position.z -= 200;
@@ -93,98 +88,6 @@ const Camera2 = () => {
   return null;
 };
 
-const BillboardGroup = () => {
-  const follow = ("follow", true);
-  const lockX = ("lockX", false);
-  const lockY = ("lockY", false);
-  const lockZ = ("lockZ", false);
-  // const img1 = `me.png`;
-  return (
-    <>
-      <group position={[0, 0, 0]}>
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[-4, -2, 0]}
-        >
-          {/* <ThreeImg args={[3, 2]} img={img1} /> */}
-          {/* <Plane args={[3, 2]} material-color="red" /> */}
-          {/* <Box args={[0.001, 5, 5]} position={[0, 0, 0]} /> */}
-        </Billboard>
-
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[-4, 2, 0]}
-        >
-          {/* <Plane args={[3, 2]} material-color="orange" /> */}
-          {/* <Box args={[0.001, 5, 5]} position={[0, 0, 0]} /> */}
-        </Billboard>
-
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[0, 0, 0]}
-        >
-          <Box args={[0.03, 5, 5]} position={[0, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[1, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[-1, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[2, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[-2, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[3, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[-4, 0, 0]} />
-          <Box args={[0.03, 5, 5]} position={[-5, 0, 0]} />
-
-          {/* <ThreeImg args={[1, 1]} img1={img1} img2={img2} disp={img3} /> */}
-
-          <Html>
-            <div
-              style={{
-                position: "relative",
-                /* top: 3%; */
-                transform: " translate(-50%,-50%)",
-              }}
-              className="contact  canvasText"
-            >
-              {" "}
-              <ContactForm />
-            </div>
-          </Html>
-        </Billboard>
-
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[4, -2, 0]}
-        >
-          {/* <Plane args={[3, 2]} material-color="blue" />
-           */}{" "}
-          {/* <Box args={[0.001, 5, 5]} position={[0, 0, 0]} /> */}
-        </Billboard>
-
-        <Billboard
-          follow={follow}
-          lockX={lockX}
-          lockY={lockY}
-          lockZ={lockZ}
-          position={[4, 2, 0]}
-        >
-          {/* <Plane args={[3, 2]} material-color="yellow" /> */}{" "}
-          {/* <Box args={[0.001, 5, 5]} position={[0, 0, 0]} /> */}
-        </Billboard>
-      </group>
-    </>
-  );
-};
-
 const Cityview = (props) => {
   const [mobile, setMobile] = useState();
   // const [show, setShow] = useState();
@@ -194,6 +97,57 @@ const Cityview = (props) => {
     // const showTimeout = setTimeout(() => setShow(true), 20000);
     // return () => clearTimeout(showTimeout);
   }, []);
+
+  const BillboardGroup = () => {
+    const follow = ("follow", true);
+    const lockX = ("lockX", false);
+    const lockY = ("lockY", false);
+    const lockZ = ("lockZ", false);
+    // const img1 = `me.png`;
+    return (
+      <>
+        <group position={[0, 0, 0]}>
+          <Billboard
+            follow={follow}
+            lockX={lockX}
+            lockY={lockY}
+            lockZ={lockZ}
+            position={[0, 0, 0]}
+          >
+            <Box color="#00d285" args={[0.03, 5, 5]} position={[0, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[1, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[-1, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[2, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[-2, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[3, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[-3, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[4, 0, 0]} />
+            <Box color="yellow" args={[0.03, 5, 5]} position={[-4, 0, 0]} />
+
+            {/* <ThreeImg args={[1, 1]} img1={img1} img2={img2} disp={img3} /> */}
+
+            <Html>
+              <div
+                style={{
+                  width: mobile && "100vw",
+                  height: mobile && "100vh",
+                  textAlign: mobile && "center",
+                  padding: mobile && "13rem 0",
+                  position: "relative",
+                  /* top: 3%; */
+                  transform: " translate(-50%,-50%)",
+                }}
+                className="contact  canvasText"
+              >
+                {" "}
+                <ContactForm />
+              </div>
+            </Html>
+          </Billboard>
+        </group>
+      </>
+    );
+  };
 
   return (
     <div

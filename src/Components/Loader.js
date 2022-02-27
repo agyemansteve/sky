@@ -5,7 +5,7 @@ import img2 from "../images/img2.jpg";
 import img1 from "../images/img1.jpg";
 import img3 from "../images/img3.jpg";
 
-const slides = [img2, img2, img2];
+const slides = [img2, img3, img2];
 export default function Loader() {
   const [index, set] = useState(0);
   const transitions = useTransition(index, {
@@ -62,7 +62,7 @@ export default function Loader() {
             top: "0",
             left: "0",
             // marginTop: "5rem",
-            filter: "hue-rotate(158deg)",
+            filter: "hue-rotate(158deg) brightness(.1)",
             width: "100vw",
             height: "100vh",
             backgroundSize: "cover",

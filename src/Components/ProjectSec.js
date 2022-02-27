@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import { useTransition, a, config } from "@react-spring/web";
+import { useTransition } from "@react-spring/web";
 import shuffle from "lodash.shuffle";
 import projectPng from "../images/projects.png";
 import img1 from "../images/img1.jpg";
@@ -20,7 +20,6 @@ import img7 from "../images/img7.jpg";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import ThreeImg from "./ThreeImg";
 import { Html, softShadows } from "@react-three/drei";
-import rawPng from "../images/rawpixel2.png";
 
 softShadows();
 

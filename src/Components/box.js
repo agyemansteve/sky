@@ -35,7 +35,7 @@ function Box(props) {
     // const curY = ref.current.rotation.z;
     // const nextY = (curTop / ((3 - 1) * viewportHeight)) * Math.PI;
     // ref.current.rotation.z = THREE.MathUtils.lerp(curY, nextY, 0.1);
-    ref.current.rotation.x += 0.005;
+    ref.current.rotation.x += 0.0005;
     ref.current.rotation.y += 0.005;
   });
 
@@ -51,7 +51,7 @@ function Box(props) {
         e.stopPropagation();
 
         e.eventObject.rotation._y += (e.point.x * 0.000009) / 3;
-        e.eventObject.rotation._x += (e.point.y * 0.000009) / 6;
+        // e.eventObject.rotation._x += (e.point.y * 0.000009) / 6;
         // e.clientX
         // console.log(e.eventObject.rotation._x);
       }}
@@ -69,7 +69,7 @@ function Box(props) {
         roughnessMap={roughnessMap}
         matelaness={1}
         roughness={0.5}
-        color={hovered ? "white" : "yellow"}
+        color={hovered ? "darkred" : props.color}
       ></meshStandardMaterial>
 
       <Environment

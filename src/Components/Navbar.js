@@ -52,7 +52,7 @@ class Navbar extends React.Component {
                 style={{
                   fontSize: "1.8rem",
                   fontWeight: "900",
-                  color: "#770006",
+                  color: "#12b54d",
                   textShadow: "none",
                 }}
               ></i>
@@ -70,6 +70,8 @@ class Navbar extends React.Component {
               <Link
                 to="/"
                 className="nav-links"
+                onClick={scroll.scrollToTop}
+
                 // onClick={this.props.handleMobileMenuClose}
               >
                 Home

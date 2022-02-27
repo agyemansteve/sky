@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Move from "./Move";
+// import Move from "./Move";
 import { ScrollLinkButton } from "./ScrollLinkButton";
 
 export default function Block(props) {

@@ -190,7 +190,7 @@ export default function IAM() {
                   padding: mobile ? "2rem 5rem" : "0rem 35%",
                   transition: "all 1s ease",
                   // filter: "invert(1)",
-                  color: "black",
+                  color: mobile ? "white" : "black",
                   background: mobile ? offsetY >= 450 && " black" : `#eff0ee`,
                 }}
               >
