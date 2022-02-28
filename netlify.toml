@@ -4,7 +4,7 @@
 
 [build]
   
-  command = "CI=false cd my_functions && npm install && cd ../ && react-scripts build"
+  command = "cd my_functions && npm install && cd ../ && CI=false react-scripts build"
   functions = "my_functions"
   publish = "build"
 
