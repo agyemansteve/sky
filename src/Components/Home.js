@@ -4,12 +4,10 @@ import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 // import { Physics } from "@react-three/cannon";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import Move from "./Move";
-import clouds from "../images/rawpixel.png";
+
 import img2 from "../images/img2.jpg";
 
 // import Spinner from "react-bootstrap/Spinner";
-
-import { Link } from "react-router-dom";
 
 import * as THREE from "three";
 

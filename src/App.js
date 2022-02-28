@@ -27,7 +27,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       show: "",
-      mobile: false,
+      mobile: "",
       greetings: "Welcome",
       photos: [],
       videos: [],
@@ -175,11 +175,11 @@ class App extends React.Component {
 
         photographer = response.data.photos[rndNum].photographer;
 
-        section.style.background = this.state.mobile
+        section.style.background = self.state.mobile
           ? `url(${pic}) center center/cover`
           : `url(${pic}) fixed center center/cover`;
         topCols.forEach((col) => {
-          col.style.background = this.state.mobile
+          col.style.background = self.state.mobile
             ? `url(${pic}) center center/cover`
             : `url(${pic})fixed center center/cover`;
         });
@@ -419,7 +419,6 @@ class App extends React.Component {
       .then(function (response) {
         const rndNum = Math.floor(Math.random() * 10);
         let vidArr = response.data.items;
-        console.log(response.data);
 
         const youtubeText = document.querySelector(".youtubeText");
 

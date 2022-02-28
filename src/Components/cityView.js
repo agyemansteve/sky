@@ -56,7 +56,7 @@ const Camera2 = () => {
 
     // camera.position.x = (mouse.x * viewport.width) / 4;
     // camera.position.y = (mouse.y * viewport.width) / 4;
-    camera.position.set(0, 0, 10);
+    camera.position.set(0, 0, 12);
     camera.position.lerp(new THREE.Vector3(x, y, 0.5), 0.6);
     // if (camera.position.x <= -950) {
     //   camera.position.x = 900;
