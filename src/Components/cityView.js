@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 
-import img2 from "../images/img2.jpg";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 

@@ -2,17 +2,13 @@ import React, { useState, useEffect } from "react";
 // import { Container, Col, Row } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 // import Move from "./Move";
-import { ScrollLinkButton } from "./ScrollLinkButton";
 
 export default function Block(props) {
   const [offsetY, setOffsetY] = useState(0);
   const [mobile, setMobile] = useState();
   const handleScroll = () => setOffsetY(window.pageYOffset);
   console.log(offsetY);
-  let textsize = offsetY / 12;
   // const bg1 = `https://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
   // `;
 
