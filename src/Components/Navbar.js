@@ -71,19 +71,21 @@ class Navbar extends React.Component {
                 to="/"
                 className="nav-links"
                 onClick={scroll.scrollToTop}
-
+                style={{ letterSpacing: "10px" }}
                 // onClick={this.props.handleMobileMenuClose}
               >
-                Home
+                ||Home
               </Link>
             </li>
             <li onClick={this.props.handleMobileMenuClose}>
               <Link
                 to="/contact"
                 className="nav-links"
+                style={{ letterSpacing: "10px" }}
+
                 // onClick={this.props.handleMobileMenuClose}
               >
-                Contact
+                ||Contact
               </Link>
             </li>
             <li onClick={this.props.handleMobileMenuClose}>
@@ -94,8 +96,9 @@ class Navbar extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                style={{ letterSpacing: "10px" }}
               >
-                Projects
+                ||Projects
               </a>
               {/* <Link
                 to="/projects"
@@ -109,9 +112,10 @@ class Navbar extends React.Component {
               <Link
                 to="/work"
                 className="nav-links"
+                style={{ letterSpacing: "10px" }}
                 // onClick={this.props.handleMobileMenuClose}
               >
-                Apps
+                ||Apps
               </Link>
             </li>
             <li onClick={this.props.handleMobileMenuClose}>

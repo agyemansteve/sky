@@ -29,14 +29,9 @@ function Box(props) {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
   // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame(({ clock, set }, state, delta) => {
-    // const currentPos = window.scrollY / 5000
-    // const curTop = viewportHeight;
-    // const curY = ref.current.rotation.z;
-    // const nextY = (curTop / ((3 - 1) * viewportHeight)) * Math.PI;
-    // ref.current.rotation.z = THREE.MathUtils.lerp(curY, nextY, 0.1);
-    ref.current.rotation.x += 0.0005;
-    ref.current.rotation.y += 0.005;
+  useFrame(() => {
+    ref.current.rotation.x += 0.005;
+    // ref.current.rotation.y += 0.0005;
   });
 
   // Return the view, these are regular Threejs elements expressed in JSX
@@ -47,14 +42,16 @@ function Box(props) {
       ref={ref}
       scale={active ? 5 : 1}
       onClick={(event) => setActive(!active)}
-      onPointerMove={(e) => {
-        e.stopPropagation();
-
-        e.eventObject.rotation._y += (e.point.x * 0.000009) / 3;
-        // e.eventObject.rotation._x += (e.point.y * 0.000009) / 6;
-        // e.clientX
-        // console.log(e.eventObject.rotation._x);
-      }}
+      // onPointerMove={(e) => {
+      //   e.stopPropagation();
+      //   console.log(e.eventObject);
+      //   e.eventObject.position.x += 0.005;
+      //   e.eventObject.position.y += 0.0005;
+      //   // e.eventObject.rotation._z += (e.point.x * 0.000009) / 3;
+      //   // e.eventObject.rotation._x += (e.point.y * 0.000009) / 6;
+      //   // e.clientX
+      //   // console.log(e.eventObject.rotation._x);
+      // }}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
       castShadow
@@ -69,7 +66,7 @@ function Box(props) {
         roughnessMap={roughnessMap}
         matelaness={1}
         roughness={0.5}
-        color={hovered ? "darkred" : props.color}
+        color={hovered ? "white" : props.color}
       ></meshStandardMaterial>
 
       <Environment

@@ -28,6 +28,7 @@ class App extends React.Component {
     this.state = {
       show: "",
       mobile: "",
+      offsetY: 0,
       greetings: "Welcome",
       photos: [],
       videos: [],
@@ -57,6 +58,7 @@ class App extends React.Component {
     this.handleScroll = this.handleScroll.bind(this);
     this.setFromEvent = this.setFromEvent.bind(this);
     this.handleMobileState = this.handleMobileState.bind(this);
+    this.handleOffsetY = this.handleOffsetY.bind(this);
   }
 
   handleMobileState() {
@@ -72,6 +74,12 @@ class App extends React.Component {
     }
   }
 
+  handleOffsetY() {
+    this.setState({
+      offsetY: window.pageYOffset,
+    });
+  }
+
   componentDidMount() {
     this._isMounted = true;
     // window.scrollTo(0, 0);
@@ -80,13 +88,14 @@ class App extends React.Component {
       () =>
         this.setState({
           show: true,
-          // photos: response.data.photos,
         }),
 
-      20000
+      10000
     );
 
     window.addEventListener("mousemove", this.setFromEvent);
+
+    window.addEventListener("scroll", this.handleOffsetY);
 
     this.handleMobileState();
 
@@ -185,7 +194,9 @@ class App extends React.Component {
         });
 
         section2s.forEach((section) => {
-          section.style.background = `#ffff`;
+          section.style.background = self.state.mobile
+            ? `url(${pic}) center center/cover`
+            : `url(${pic})fixed center center/cover`;
         });
 
         self.setState({
@@ -464,16 +475,23 @@ class App extends React.Component {
       >
         <ScrollToTop />
         {/* <Cursor /> */}
-        <div className="cursor">
+        <div
+          style={{
+            opacity: this.state.mobile ? "0" : this.state.offsetY >= 2 && "0",
+          }}
+          className="cursor"
+        >
           <small
             style={{
               color: "black",
-              fontSize: "1rem",
+              fontSize: ".5rem",
               position: "relative",
               top: "39px",
             }}
             className="cursorInner"
-          ></small>
+          >
+            {this.state.greetings}
+          </small>
         </div>
         <Navbar
           navToggle={this.state.navToggle}

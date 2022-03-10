@@ -24,7 +24,8 @@ const Footer = () => {
       fluid
       style={{
         height: mobile ? "100vh" : "65vh",
-        background: `#ECF0F2`,
+        background: `#000000`,
+        color: "white",
       }}
       // className="footer"
     >
@@ -47,7 +48,7 @@ const Footer = () => {
                 // fontFamily: `"Nothing You Could Do", cursive`,
                 background: mobile && `transparent !important`,
               }}
-              className={"stack-item"}
+              className={"stack-item observed"}
             >
               SITE
               <strong
@@ -63,7 +64,7 @@ const Footer = () => {
                 fontSize: mobile ? "1rem" : ".7rem",
                 padding: mobile && "none",
               }}
-              className={"stack-item"}
+              className={"stack-item observed"}
             >
               <Link
                 to="/"
@@ -83,7 +84,7 @@ const Footer = () => {
                 fontSize: mobile ? "1rem" : ".7rem",
                 padding: mobile && "none",
               }}
-              className={"stack-item"}
+              className={"stack-item observed"}
             >
               <Link
                 to="/work"
@@ -103,7 +104,7 @@ const Footer = () => {
                 fontSize: mobile ? "1rem" : ".7rem",
                 padding: mobile && "none",
               }}
-              className={"stack-item"}
+              className={"stack-item observed"}
             >
               <Link
                 to="/contact"
@@ -149,7 +150,7 @@ const Footer = () => {
                     className="fas fa-arrow-circle-up"
                     onClick={scroll.scrollToTop}
                     style={{
-                      color: "black",
+                      // color: "black",
                       fontSize: "23px",
                     }}
                   ></i>
@@ -210,7 +211,7 @@ const Footer = () => {
                 // fontWeight: "900",
                 // fontFamily: `"Nothing You Could Do", cursive`,
               }}
-              className={"stack-item"}
+              className={"stack-item observed"}
             >
               CONTACT
               <strong style={{ color: "#12b54d" }}>INFO</strong>{" "}

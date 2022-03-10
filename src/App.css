@@ -27,10 +27,40 @@ body {
     /* #f0f0ee,
     #f0f0ee, */ #121214,
     #131314,
-    rgb(255, 255, 255)
+    rgb(0, 0, 0)
   );
   /* background-image: url("./images/future.jpg"); */
 }
+
+.loading {
+  left: 0rem;
+  animation: loading1 1s infinite;
+}
+
+@keyframes loading1 {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* @keyframes loading3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loading2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(29.5rem, 0);
+  }
+} */
 
 .cursor {
   position: absolute;
@@ -190,10 +220,10 @@ vw
   text-decoration: none;
   font-size: 1.4rem;
   /* text-shadow: 0px 1px 3px black, 0px 1px 3px black; */
-  font-weight: 200;
+  font-weight: 500;
   /* border-bottom: 1px solid #12b54d; */
   text-shadow: 0.5px 0.2px 0px white;
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .nav-links:hover {
@@ -233,7 +263,7 @@ vw
 
 .cls-1 {
   fill: rgba(255, 255, 255, 0);
-  stroke: #8b00009c;
+  stroke: #5ec558;
   stroke-miterlimit: 50;
   stroke-width: 1px;
 }
@@ -246,25 +276,24 @@ vw
 }
 
 #svg-logo {
-  height: 16vw;
   stroke-width: 1px;
   stroke-dasharray: 1350;
   stroke-dashoffset: 10000;
-  position: absolute;
+  /* position: absolute; */
   pointer-events: none;
 
   /* animation: logoAnime 6s 3s ease alternate; */
   /* transition: all 4s ease-in; */
-  right: 44%;
-  top: 34%;
+  /* right: 44%;
+  top: 34%; */
   /* transform: translate(-50%, -50%); */
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
-
-/* #svg-logo:hover {
+/* 
+#svg-logo:hover {
   stroke: rgb(255, 255, 255);
   transition: all 2s linear;
- 
+
   stroke-width: 1px;
   fill-opacity: 0.9;
 
@@ -669,6 +698,47 @@ vw
   pointer-events: none;
 }
 
+.top {
+  position: relative;
+}
+
+.top::before {
+  content: " ";
+  /* background: #cce7; */
+  height: 112vh;
+  /* background: black; */
+  background: fixed center center/cover url(./images/img2.jpg);
+
+  top: -9%;
+  /* bottom: 46px; */
+  /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  filter: invert(1) brightness(0.2);
+  left: -38%;
+  z-index: -1;
+  width: 91%;
+  position: absolute;
+  pointer-events: none;
+}
+.top::after {
+  content: " ";
+  /* background: #cce7; */
+  height: 85vh;
+  /* background: black; */
+  background: fixed center center/cover url(./images/img2.jpg);
+
+  top: -9%;
+  /* bottom: 46px; */
+  /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  filter: invert(1) brightness(0.2);
+  /* left: 21%; */
+  z-index: -1;
+  width: 111%;
+  position: absolute;
+  pointer-events: none;
+}
+
 .aboutCardWrapper::after {
   content: " ";
   /* background: #cce7; */
@@ -706,27 +776,71 @@ vw
   /* left: 10%; */
   z-index: -1;
   width: 100%;
-
   position: absolute;
   pointer-events: none;
 }
 
 /********* CItyView ************/
-/* 
+.cityView {
+  position: relative;
+  overflow: hidden;
+}
 .cityView::after {
-  display: none;
+  /* display: none; */
   content: " ";
+  /* background: #cce7; */
+  height: 131vh;
+  /* background: #000000; */
+  background: fixed center center/cover url(./images/img2.jpg);
 
-  background: linear-gradient(180deg, #fffcfd1a, #fff9fb, #ffffff57, #fffefe00);
-  height: 50vh;
+  /* top: 45%; */
+  bottom: -9px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  filter: invert(1) brightness(0.3);
+  left: -40%;
+  z-index: -1;
   width: 100%;
-  bottom: -283%;
+
   position: absolute;
   pointer-events: none;
-} */
+}
+
+.cityView::before {
+  /* display: none; */
+  content: " ";
+  /* background: #cce7; */
+  height: 108vh;
+  /* background: #000000; */
+  background: fixed center center/cover url(./images/img2.jpg);
+
+  /* top: 45%; */
+  bottom: -9px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  filter: invert(1) brightness(0.3);
+  left: 1%;
+  z-index: -1;
+  width: 100%;
+
+  position: absolute;
+  pointer-events: none;
+}
 /************ SMALL SCREENS***************/
 
 @media screen and (max-width: 768px) {
+  .cityView::after {
+    background: center center/cover url(./images/img2.jpg);
+  }
+  .cityView::before {
+    background: center center/cover url(./images/img2.jpg);
+  }
+
+  .top::after {
+    background: center center/cover url(./images/img2.jpg);
+  }
+  .top::before {
+    background: center center/cover url(./images/img2.jpg);
+  }
+
   .iam::before {
     display: none;
   }
@@ -813,7 +927,7 @@ vw
   .nav-menu.active {
     position: absolute;
     top: -62px;
-    background: #dee2e6;
+    background: #000000;
     width: 100%;
     height: 113vh;
     align-items: stretch;
@@ -991,7 +1105,7 @@ form.search button:active {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 /* Project Cards */

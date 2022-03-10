@@ -21,32 +21,16 @@ export default function Transition(props) {
   const [offsetY, setOffsetY] = useState(0);
   const [mobile, setMobile] = useState();
   const handleScroll = () => setOffsetY(window.pageYOffset);
-  // let textsize = offsetY / 12;
-  // console.log(offsetY);
 
-  // const bg1 =  `  no-repeat  url( https://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)fixed center center/cover`;
-
-  // top col background 22/21q
-  const bg1 = `https://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260s`;
+  const bg1 = `https://images.pexels.com/photos/1224158/pexels-photo-1224158.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200`;
 
   const containeBg = mobile
-    ? `url(${img1}) center center/cover`
-    : `url(${img1})fixed center center/cover`;
+    ? `url(${bg1}) center center/cover`
+    : `url(${bg1})fixed center center/cover`;
   const topColsBg = `transparent`;
   const bottomColsBg = `white`;
 
-  const bg3 = `
-https://images.pexels.com/photos/4194857/pexels-photo-4194857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-  
-  
-  `;
-
   // top cols background
-  const bg4 = `
-  
-ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-  
-  `;
 
   // const bg5 = `https://images.pexels.com/photos/1880651/pexels-photo-1880651.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940`;
 
@@ -203,7 +187,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
       {/* LEFT SIDE BAR */}
 
       <Row
-        className="welcome2"
+        className="welcome2 topCol"
         style={{
           height: mobile ? "20vh" : "165vh",
           transition: "all 1s ease",
@@ -214,7 +198,7 @@ ttps://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs
           // marginTop: "5rem",
 
           background: mobile
-            ? ` no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe) center center/cover`
+            ? `#e7e8e3`
             : `
             no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover
           `,

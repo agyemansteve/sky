@@ -151,14 +151,18 @@ class WelcomeYtube extends React.Component {
         <Col
           md="4"
           style={{
-            background: `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
+            background: mobile
+              ? `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe) center center/cover`
+              : `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
             // borderRadius: !mobile && "0 0 100% 0%",
           }}
         >
           <div
-            className="topCol"
+            className="topCol welcome2"
             style={{
-              background: `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
+              background: mobile
+                ? `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)center center/cover `
+                : `no-repeat  url( https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-05.jpg?w=1300&dpr=1&fit=default&crop=default&q=80&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=146e6c3224a2fe471b3be1066ff82bfe)fixed center center/cover`,
               display: mobile ? "block" : "none",
 
               textAlign: "center",

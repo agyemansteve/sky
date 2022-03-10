@@ -1,12 +1,9 @@
 import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
-// import img1 from "../images/img1.jpg";
 
 import img2 from "../images/img2.jpg";
-// import img2 from "../images/img2.jpg";
-// import img3 from "../images/img3.jpg";
-// import { Physics } from "@react-three/cannon";
+
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import {
@@ -24,8 +21,6 @@ import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import Box from "./box";
 import ContactForm from "./ContactForm";
 
-// import { Sphere, BigSphere } from "./Sphere";
-
 extend({ GlitchPass, FilmPass });
 
 const Camera2 = () => {
@@ -37,7 +32,7 @@ const Camera2 = () => {
   // controls.screenSpacePanning = false;
 
   // controls.autoRotateSpeed = 1;
-  controls.autoRotate = true;
+  controls.autoRotate = false;
   // controls.enableDamping = true;
   // controls.dampingFactor = 0.125;
   controls.enablePan = false;
@@ -51,13 +46,13 @@ const Camera2 = () => {
 
   useFrame(() => {
     // console.log(mouse.x);
-    const x = (mouse.x * viewport.width) / 4;
-    const y = (mouse.y * viewport.width) / 4;
+    const x = (mouse.x * viewport.width) / 6;
+    const y = (mouse.y * viewport.width) / 6;
 
     // camera.position.x = (mouse.x * viewport.width) / 4;
     // camera.position.y = (mouse.y * viewport.width) / 4;
-    camera.position.set(0, 0, 12);
-    camera.position.lerp(new THREE.Vector3(x, y, 0.5), 0.6);
+    // camera.position.set(0, 0, 11);
+    camera.position.lerp(new THREE.Vector3(x, y, 5), 0.6);
     // if (camera.position.x <= -950) {
     //   camera.position.x = 900;
     //   camera.position.z -= 200;
@@ -114,15 +109,15 @@ const Cityview = (props) => {
             lockZ={lockZ}
             position={[0, 0, 0]}
           >
-            <Box color="#00d285" args={[0.03, 5, 5]} position={[0, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[1, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[-1, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[2, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[-2, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[3, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[-3, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[4, 0, 0]} />
-            <Box color="yellow" args={[0.03, 5, 5]} position={[-4, 0, 0]} />
+            <Box color="#00d285" args={[0.08, 5, 5]} position={[0, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[1, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[-1, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[2, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[-2, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[3, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[-3, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[4, 0, 0]} />
+            <Box color="#12b54d" args={[0.08, 5, 5]} position={[-4, 0, 0]} />
 
             {/* <ThreeImg args={[1, 1]} img1={img1} img2={img2} disp={img3} /> */}
 
@@ -153,10 +148,10 @@ const Cityview = (props) => {
     <div
       style={{
         overflowX: "hidden",
-        background: mobile
-          ? `url(${img2}) center center/cover`
-          : `url(${img2}) center center/cover fixed`,
-        filter: " hue-rotate(158deg)",
+        // background: mobile
+        //   ? `url(${img2}) center center/cover`
+        //   : `url(${img2}) center center/cover fixed`,
+        // filter: " hue-rotate(158deg)",
         paddingBottom: " 10%",
         paddingTop: "10%",
       }}
