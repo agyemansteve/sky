@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "sky233.netlify.app",
   "dependencies": {
     "@react-spring/konva": "^9.2.4",
     "@react-spring/native": "^9.2.4",
