@@ -44,21 +44,7 @@ class Navbar extends React.Component {
             className="topnav-logo nav-links"
             style={{ letterSpacing: "18px", fontWeight: "100" }}
           >
-            {" "}
-            {this.state.mobile ? (
-              <i
-                onClick={this.props.handleMobileMenuClose}
-                className="fas fa-home "
-                style={{
-                  fontSize: "1.8rem",
-                  fontWeight: "900",
-                  color: "#12b54d",
-                  textShadow: "none",
-                }}
-              ></i>
-            ) : (
-              this.props.greetings
-            )}{" "}
+            {this.props.greetings}
           </Link>
 
           <div className="menu-icon" onClick={this.props.handleNavToggleClick}>

@@ -1,5 +1,5 @@
 import Spinner from "react-bootstrap/Spinner";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated, config } from "@react-spring/web";
 import img2 from "../images/img2.jpg";
 
@@ -1619,6 +1619,13 @@ const africa = (
 
 // const slides = ["red", "yellow", "green"];
 export default function Loader() {
+  const [mobile, setMobile] = useState();
+
+  useEffect(() => {
+    setMobile(window.innerWidth <= 768);
+    // const showTimeout = setTimeout(() => setShow(true), 20000);
+    // return () => clearTimeout(showTimeout);
+  }, []);
   function Svg() {
     const styles = useSpring({
       loop: true,
@@ -1626,7 +1633,7 @@ export default function Loader() {
       config: config.molasses,
       from: {
         opacity: 1,
-        height: "50vh",
+        height: mobile ? "50vw" : "50vh",
         marginBottom: "1rem",
         strokeDasharray: 9000,
         strokeDashoffset: 100,
@@ -1637,7 +1644,7 @@ export default function Loader() {
           strokeDasharray: 1192,
           strokeDashoffset: 1697,
 
-          height: "60vh",
+          height: mobile ? "60vw" : "60vh",
         },
         // { opacity: 1, strokeDasharray: 9000, strokeDashoffset: 100 },
       ],
