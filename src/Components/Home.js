@@ -5,8 +5,6 @@ import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import Move from "./Move";
 
-import img2 from "../images/img2.jpg";
-
 // import Spinner from "react-bootstrap/Spinner";
 
 import * as THREE from "three";
