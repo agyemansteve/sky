@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
 
-
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import {
@@ -31,7 +30,7 @@ const Camera2 = () => {
   // controls.screenSpacePanning = false;
 
   // controls.autoRotateSpeed = 1;
-  controls.autoRotate = false;
+  controls.autoRotate = true;
   // controls.enableDamping = true;
   // controls.dampingFactor = 0.125;
   controls.enablePan = false;
@@ -121,21 +120,21 @@ const Cityview = (props) => {
             {/* <ThreeImg args={[1, 1]} img1={img1} img2={img2} disp={img3} /> */}
 
             <Html>
-              <div
+              {/* <div
                 style={{
                   width: mobile && "100vw",
                   height: mobile && "100vh",
                   textAlign: mobile && "center",
                   padding: mobile && "13rem 0",
                   position: "relative",
-                  /* top: 3%; */
+                
                   transform: " translate(-50%,-50%)",
                 }}
                 className="contact  canvasText"
               >
                 {" "}
                 <ContactForm />
-              </div>
+              </div> */}
             </Html>
           </Billboard>
         </group>
@@ -158,6 +157,30 @@ const Cityview = (props) => {
       id="cityView"
     >
       <div>
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "36%",
+            zIndex: "1",
+          }}
+        >
+          <div
+            style={{
+              width: mobile && "100vw",
+              height: mobile && "100vh",
+              textAlign: mobile && "center",
+              padding: mobile && "13rem 0",
+              position: "relative",
+              /* top: 3%; */
+              transform: " translate(-50%,-50%)",
+            }}
+            className="contact  canvasText"
+          >
+            {" "}
+            <ContactForm />
+          </div>
+        </div>
         <Canvas
           className="canvasText"
           style={{ height: "100vh" }}

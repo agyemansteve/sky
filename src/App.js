@@ -474,7 +474,6 @@ class App extends React.Component {
         }}
       >
         <ScrollToTop />
-        {/* <Cursor /> */}
         <div
           style={{
             opacity: this.state.mobile ? "0" : this.state.offsetY >= 2 && "0",
