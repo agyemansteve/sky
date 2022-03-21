@@ -286,7 +286,7 @@ export default function IAM() {
               </p>
 
               <p className=" observed">
-                An exapmle of my work can be found{" "}
+                examples of API integration can be found{" "}
                 <strong
                   style={{
                     fontStyle: "italic",
